@@ -17,9 +17,9 @@ root: /hoblog
 permalink: :year:month:day_:title/
 permalink_defaults:
 
-avatar: /img/timg.png
+avatar: /hoblog/img/timg.png
 ## favicon: http://smile921.github.io/hak_blog/images/favicon.ico
-favicon: /img/favicon.ico
+favicon: /hoblog/img/favicon.ico
 
 # Directory
 source_dir: source
@@ -73,7 +73,10 @@ theme: Yelee
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repository: https://github.com/smile921/hoblog.git
+  ## repository: git@github.com:smile921/hoblog.git
+  branch: gh-pages
 
 
 feed:
