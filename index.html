@@ -302,6 +302,14 @@
       
           
         <h2 id="University-of-Virginia-CS-1501-Lectures"><a href="#University-of-Virginia-CS-1501-Lectures" class="headerlink" title="University of Virginia  CS 1501 Lectures"></a>University of Virginia  CS 1501 Lectures</h2><p><a href="http://shuklan.com/haskell/index.html" target="_blank" rel="external">弗吉尼亚大学（University of Virginia） Haskell课程</a><br>Introduction to Haskell<br>University of Virginia  CS 1501 Lectures  Spring 2013<br><img src="images/CS1501.png" alt="image"></p>
+<h2 id="Haskell-开发相关的几个-docker-镜像"><a href="#Haskell-开发相关的几个-docker-镜像" class="headerlink" title="Haskell 开发相关的几个 docker 镜像"></a>Haskell 开发相关的几个 docker 镜像</h2><p>提供一个完整的 Haskell 开发编译环境</p>
+<ul>
+<li>fpco/stack-build (the default) - GHC (patched), tools (stack, cabal-install, happy, alex, etc.), and system developer libraries required to build all Stackage packages.</li>
+<li>fpco/stack-ghcjs-build - Like stack-build, but adds GHCJS.</li>
+<li>fpco/stack-full - Includes all Stackage packages pre-installed in GHC’s global package database. These images are over 10 GB!</li>
+<li>fpco/stack-ghcjs-full - Like stack-full, but adds GHCJS.</li>
+<li>fpco/stack-run - Runtime environment for binaries built with Stackage. Includes system shared libraries required by all Stackage packages. Does not necessarily include all data required for every use (e.g. has texlive-binaries for HaTeX, but does not include LaTeX fonts), as that would be prohibitively large. Based on phusion/baseimage.<br>FP Complete also builds custom variants of these images for their clients.</li>
+</ul>
 
       
     </div>

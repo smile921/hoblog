@@ -15,17 +15,20 @@
 
 
 
-<meta name="description" content="University of Virginia  CS 1501 Lectures弗吉尼亚大学（University of Virginia） Haskell课程Introduction to HaskellUniversity of Virginia  CS 1501 Lectures  Spring 2013">
+<meta name="description" content="University of Virginia  CS 1501 Lectures弗吉尼亚大学（University of Virginia） Haskell课程Introduction to HaskellUniversity of Virginia  CS 1501 Lectures  Spring 2013
+Haskell 开发相关的几个 docker 镜像提供一个完整的 Haskell 开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="haskell 资料收集">
 <meta property="og:url" content="http://smile921.github.io/20160803-haskell-资料收集/index.html">
 <meta property="og:site_name" content="关注网络安全动态，追求心中的向往">
-<meta property="og:description" content="University of Virginia  CS 1501 Lectures弗吉尼亚大学（University of Virginia） Haskell课程Introduction to HaskellUniversity of Virginia  CS 1501 Lectures  Spring 2013">
+<meta property="og:description" content="University of Virginia  CS 1501 Lectures弗吉尼亚大学（University of Virginia） Haskell课程Introduction to HaskellUniversity of Virginia  CS 1501 Lectures  Spring 2013
+Haskell 开发相关的几个 docker 镜像提供一个完整的 Haskell 开发">
 <meta property="og:image" content="http://smile921.github.io/images/CS1501.png">
-<meta property="og:updated_time" content="2016-08-03T05:18:08.306Z">
+<meta property="og:updated_time" content="2016-08-03T05:24:26.573Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="haskell 资料收集">
-<meta name="twitter:description" content="University of Virginia  CS 1501 Lectures弗吉尼亚大学（University of Virginia） Haskell课程Introduction to HaskellUniversity of Virginia  CS 1501 Lectures  Spring 2013">
+<meta name="twitter:description" content="University of Virginia  CS 1501 Lectures弗吉尼亚大学（University of Virginia） Haskell课程Introduction to HaskellUniversity of Virginia  CS 1501 Lectures  Spring 2013
+Haskell 开发相关的几个 docker 镜像提供一个完整的 Haskell 开发">
 <meta name="twitter:image" content="http://smile921.github.io/images/CS1501.png">
 
 <link rel="apple-touch-icon" href= "/hoblog/apple-touch-icon.png">
@@ -309,6 +312,14 @@
       
           
         <h2 id="University-of-Virginia-CS-1501-Lectures"><a href="#University-of-Virginia-CS-1501-Lectures" class="headerlink" title="University of Virginia  CS 1501 Lectures"></a>University of Virginia  CS 1501 Lectures</h2><p><a href="http://shuklan.com/haskell/index.html" target="_blank" rel="external">弗吉尼亚大学（University of Virginia） Haskell课程</a><br>Introduction to Haskell<br>University of Virginia  CS 1501 Lectures  Spring 2013<br><img src="images/CS1501.png" alt="image"></p>
+<h2 id="Haskell-开发相关的几个-docker-镜像"><a href="#Haskell-开发相关的几个-docker-镜像" class="headerlink" title="Haskell 开发相关的几个 docker 镜像"></a>Haskell 开发相关的几个 docker 镜像</h2><p>提供一个完整的 Haskell 开发编译环境</p>
+<ul>
+<li>fpco/stack-build (the default) - GHC (patched), tools (stack, cabal-install, happy, alex, etc.), and system developer libraries required to build all Stackage packages.</li>
+<li>fpco/stack-ghcjs-build - Like stack-build, but adds GHCJS.</li>
+<li>fpco/stack-full - Includes all Stackage packages pre-installed in GHC’s global package database. These images are over 10 GB!</li>
+<li>fpco/stack-ghcjs-full - Like stack-full, but adds GHCJS.</li>
+<li>fpco/stack-run - Runtime environment for binaries built with Stackage. Includes system shared libraries required by all Stackage packages. Does not necessarily include all data required for every use (e.g. has texlive-binaries for HaTeX, but does not include LaTeX fonts), as that would be prohibitively large. Based on phusion/baseimage.<br>FP Complete also builds custom variants of these images for their clients.</li>
+</ul>
 
       
     </div>
@@ -320,7 +331,7 @@
         <p><span>本文标题:</span><a href="/hoblog/20160803-haskell-资料收集/">haskell 资料收集</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Smile921</a></p>
         <p><span>发布时间:</span>2016-08-03, 12:31:55</p>
-        <p><span>最后更新:</span>2016-08-03, 13:18:08</p>
+        <p><span>最后更新:</span>2016-08-03, 13:24:26</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/hoblog/20160803-haskell-资料收集/" title="haskell 资料收集">http://smile921.github.io/hoblog/20160803-haskell-资料收集/</a>
             <span class="copy-path" data-clipboard-text="原文: http://smile921.github.io/hoblog/20160803-haskell-资料收集/　　作者: Smile921" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -350,7 +361,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#University-of-Virginia-CS-1501-Lectures"><span class="toc-number">1.</span> <span class="toc-text">University of Virginia  CS 1501 Lectures</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#University-of-Virginia-CS-1501-Lectures"><span class="toc-number">1.</span> <span class="toc-text">University of Virginia  CS 1501 Lectures</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Haskell-开发相关的几个-docker-镜像"><span class="toc-number">2.</span> <span class="toc-text">Haskell 开发相关的几个 docker 镜像</span></a></li></ol>
         
     </div>
     <style>
