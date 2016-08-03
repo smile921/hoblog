@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>关注网络安全动态，追求心中的向往</title>
   <subtitle>迈入新世界，培养独当一面的 Web 前端工程师！</subtitle>
-  <link href="/hoblog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
   <link href="http://smile921.github.io/"/>
   <updated>2016-08-03T04:57:18.546Z</updated>
