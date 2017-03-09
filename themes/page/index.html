@@ -1,0 +1,94 @@
+<!doctype html>
+<html class="fsvs demo" lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>jQuery+CSS3全屏垂直翻页代码 - 站长素材</title>
+        <link rel="stylesheet" href="assets/css/style.css">
+        
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="assets/js/jquery.swipe-events.js"></script>
+        <script src="assets/js/prismjs.js"></script>
+        <script src="assets/js/fsvs.js"></script>
+        <script src="assets/js/main.js"></script>
+    </head>
+    <body>
+        <div id="fsvs-body">
+            <div class="slide" id="fsvs-initial-setup">
+                <h1 class="htmleaf-title">FSVS-jQuery和CSS3带过渡效果的全屏整页垂直滚动特效插件</h1>
+				<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+				<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+                <div>
+                    <pre><code class="language-javascript">
+$(document).ready( function() {
+    // The HTML tag must have a class of fsvs
+    var fsvs = $.fn.fsvs({
+        speed : 1000
+    });
+});
+                    </code></pre>
+                </div>
+            </div>
+            <div class="slide" id="basic-html-setup">
+                <h2>Basic HTML setup</h2>
+                <div>
+                    <pre><code class="language-php">
+&lt;!doctype html&gt;
+&lt;html class="fsvs" lang="en"&gt;
+    &lt;body&gt;
+        &lt;div id="fsvs-body"&gt;
+            &lt;div class="slide"&gt;&lt;/div&gt;
+            &lt;div class="slide"&gt;&lt;/div&gt;
+            &lt;div class="slide"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                </div>
+
+            </div>
+            <div class="slide">
+                <h2>Default Options</h2>
+    <pre><code class="language-javascript">
+$(document).ready( function() {
+    var fsvs = $.fn.fsvs({
+        speed : 5000,
+        bodyID : 'fsvs-body',
+        selector : '> .slide',
+        mouseSwipeDisance : 40,
+        afterSlide : function(){},
+        beforeSlide : function(){},
+        endSlide : function(){},
+        mouseWheelEvents : true,
+        mouseDragEvents : true,
+        touchEvents : true,
+        arrowKeyEvents : true,
+        pagination : true,
+        nthClasses : false,
+        detectHash : true
+    });
+});
+    </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Load In New Slides On End</h2>
+    <pre><code class="language-javascript">
+$(document).ready( function() {
+    var slider = $.fn.fsvs({
+        ...
+        endSlide : function(index) {
+            $('&lt;div class="slide"&gt;&lt;h2&gt;Slide ' + (index+2) + '&lt;/h2&gt;&lt;/div&gt;').appendTo( $('body') );
+            // reset the nth classes if you need it
+            slider.nthClasses(3);
+            // rebind pagination if you need it
+            slider.addPagination();
+        }
+        ...
+    });
+});
+</code></pre>
+            </div>
+        </div>
+
+</body>
+</html>
