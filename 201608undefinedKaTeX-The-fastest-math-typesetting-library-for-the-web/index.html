@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Smile921" />
+
+
+
+<meta name="description" content="KaTeX 简介examplesdemo12345&amp;lt;div class=&quot;examples&quot;&amp;gt;        &amp;lt;div class=&quot;example tex&quot; data-expr=&quot;\displaystyle \frac&amp;#123;1&amp;#125;&amp;#123;\Bigl(\sqrt&amp;#123;\phi \sqrt&amp;#123;5&amp;#125;&amp;#125;-\phi\Bigr) e^&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KaTeX The fastest math typesetting library for the web">
+<meta property="og:url" content="http://smile921.github.io/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/index.html">
+<meta property="og:site_name" content="关注网络安全动态，追求心中的向往">
+<meta property="og:description" content="KaTeX 简介examplesdemo12345&amp;lt;div class=&quot;examples&quot;&amp;gt;        &amp;lt;div class=&quot;example tex&quot; data-expr=&quot;\displaystyle \frac&amp;#123;1&amp;#125;&amp;#123;\Bigl(\sqrt&amp;#123;\phi \sqrt&amp;#123;5&amp;#125;&amp;#125;-\phi\Bigr) e^&amp;#">
+<meta property="og:updated_time" content="2017-03-09T09:18:38.031Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KaTeX The fastest math typesetting library for the web">
+<meta name="twitter:description" content="KaTeX 简介examplesdemo12345&amp;lt;div class=&quot;examples&quot;&amp;gt;        &amp;lt;div class=&quot;example tex&quot; data-expr=&quot;\displaystyle \frac&amp;#123;1&amp;#125;&amp;#123;\Bigl(\sqrt&amp;#123;\phi \sqrt&amp;#123;5&amp;#125;&amp;#125;-\phi\Bigr) e^&amp;#">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="关注网络安全动态，追求心中的向往" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>KaTeX The fastest math typesetting library for the web | 关注网络安全动态，追求心中的向往</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/timg.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Smile921</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">迈入新世界，培养独当一面的 Web 前端工程师！</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/.">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/security">随笔</a></li>
+                        
+                            <li><a href="/archives/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:ruby2010ruby@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/smile921" title="GitHub"></a>
+                            
+                                <a class="fa V2EX" href="http://www.v2ex.com/member/lanyi921" title="V2EX"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IM/">IM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KaTeX/">KaTeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Math/">Math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TeX/">TeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/awesome/">awesome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bt/">bt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devdoc/">devdoc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dht/">dht</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/electron/">electron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/forum/">forum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fun/">fun</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haskell/">haskell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello/">hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jpda/">jpda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koan/">koan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koans/">koans</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lua/">lua</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/office/">office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ruby/">ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/science/">science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spcaemacs/">spcaemacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/">telegram</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutor/">tutor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/waf/">waf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/存储过程/">存储过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/题解/">题解</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Smile921</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/timg.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Smile921</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">迈入新世界，培养独当一面的 Web 前端工程师！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/.">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/security">随笔</a></li>
+                
+                    <li><a href="/archives/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:ruby2010ruby@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/smile921" title="GitHub"></a>
+                            
+                                <a class="fa V2EX" target="_blank" href="http://www.v2ex.com/member/lanyi921" title="V2EX"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-KaTeX-The-fastest-math-typesetting-library-for-the-web" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/" class="article-date">
+      <time datetime="2016-08-23T01:22:59.000Z" itemprop="datePublished">2016-08-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      KaTeX The fastest math typesetting library for the web
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KaTeX/">KaTeX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">Math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TeX/">TeX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="KaTeX-简介"><a href="#KaTeX-简介" class="headerlink" title="KaTeX 简介"></a>KaTeX 简介</h1><h2 id="examples"><a href="#examples" class="headerlink" title="examples"></a>examples</h2><p><a href="../katex/index.html">demo</a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"examples"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"example tex"</span> <span class="attr">data-expr</span>=<span class="string">"\displaystyle \frac&#123;1&#125;&#123;\Bigl(\sqrt&#123;\phi \sqrt&#123;5&#125;&#125;-\phi\Bigr) e^&#123;\frac25 \pi&#125;&#125; = 1+\frac&#123;e^&#123;-2\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-4\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-6\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-8\pi&#125;&#125; &#123;1+\cdots&#125; &#125; &#125; &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"example tex"</span> <span class="attr">data-expr</span>=<span class="string">"\displaystyle \left( \sum_&#123;k=1&#125;^n a_k b_k \right)^2 \leq \left( \sum_&#123;k=1&#125;^n a_k^2 \right) \left( \sum_&#123;k=1&#125;^n b_k^2 \right)"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"example tex"</span> <span class="attr">data-expr</span>=<span class="string">"\displaystyle 1 +  \frac&#123;q^2&#125;&#123;(1-q)&#125;+\frac&#123;q^6&#125;&#123;(1-q)(1-q^2)&#125;+\cdots = \prod_&#123;j=0&#125;^&#123;\infty&#125;\frac&#123;1&#125;&#123;(1-q^&#123;5j+2&#125;)(1-q^&#123;5j+3&#125;)&#125;, \quad\quad \text&#123;for &#125;\lvert q\rvert&lt;1."</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="Simple-API-no-dependencies-–-yet-super-fast-on-all-major-browsers"><a href="#Simple-API-no-dependencies-–-yet-super-fast-on-all-major-browsers" class="headerlink" title="Simple API, no dependencies – yet super-fast on all major browsers."></a>Simple API, no dependencies – yet super-fast on all major browsers.</h2><p><a href="https://khan.github.io/KaTeX/" target="_blank" rel="external">Fast math typesetting for the web.</a></p>
+<ul>
+<li><strong>Fast: </strong><br>   KaTeX renders its math synchronously and doesn’t need to reflow the page.</li>
+<li><strong>Print quality:</strong><br>   KaTeX’s layout is based on Donald Knuth’s TeX, the gold standard for math typesetting.</li>
+<li><strong>Self contained:</strong><br>   KaTeX has no dependencies and can easily be bundled with your website resources.</li>
+<li><strong>Server side rendering:</strong><br>   KaTeX produces the same output regardless of browser or environment, so you can pre-render expressions using Node.js and send them as plain HTML.</li>
+</ul>
+<p>KaTeX supports all major browsers, including Chrome, Safari, Firefox, Opera, and IE 8 - IE 11.  A list of supported  commands can be on the <a href="https://github.com/Khan/KaTeX/wiki/Function-Support-in-KaTeX" target="_blank" rel="external">wiki</a>.</p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>You can <a href="https://github.com/khan/katex/releases" target="_blank" rel="external">download KaTeX</a> and host it on your server or include the <code>katex.min.js</code> and <code>katex.min.css</code> files on your page directly from a CDN:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="In-browser-rendering"><a href="#In-browser-rendering" class="headerlink" title="In-browser rendering"></a>In-browser rendering</h4><p>Call <code>katex.render</code> with a TeX expression and a DOM element to render into:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">katex.render(<span class="string">"c = \\pm\\sqrt&#123;a^2 + b^2&#125;"</span>, element);</div></pre></td></tr></table></figure>
+<p>If KaTeX can’t parse the expression, it throws a <code>katex.ParseError</code> error.</p>
+<h4 id="Server-side-rendering-or-rendering-to-a-string"><a href="#Server-side-rendering-or-rendering-to-a-string" class="headerlink" title="Server side rendering or rendering to a string"></a>Server side rendering or rendering to a string</h4><p>To generate HTML on the server or to generate an HTML string of the rendered math, you can use <code>katex.renderToString</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> html = katex.renderToString(<span class="string">"c = \\pm\\sqrt&#123;a^2 + b^2&#125;"</span>);</div><div class="line"><span class="comment">// '&lt;span class="katex"&gt;...&lt;/span&gt;'</span></div></pre></td></tr></table></figure>
+<p>Make sure to include the CSS and font files, but there is no need to include the JavaScript. Like <code>render</code>, <code>renderToString</code> throws if it can’t parse the expression.</p>
+<h4 id="Rendering-options"><a href="#Rendering-options" class="headerlink" title="Rendering options"></a>Rendering options</h4><p>You can provide an object of options as the last argument to <code>katex.render</code> and <code>katex.renderToString</code>. Available options are:</p>
+<ul>
+<li><code>displayMode</code>: <code>boolean</code>. If <code>true</code> the math will be rendered in display mode, which will put the math in display style (so <code>\int</code> and <code>\sum</code> are large, for example), and will center the math on the page on its own line. If <code>false</code> the math will be rendered in inline mode. (default: <code>false</code>)</li>
+<li><code>throwOnError</code>: <code>boolean</code>. If <code>true</code>, KaTeX will throw a <code>ParseError</code> when it encounters an unsupported command. If <code>false</code>, KaTeX will render the unsupported command as text in the color given by <code>errorColor</code>. (default: <code>true</code>)</li>
+<li><code>errorColor</code>: <code>string</code>. A color string given in the format <code>&quot;#XXX&quot;</code> or <code>&quot;#XXXXXX&quot;</code>. This option determines the color which unsupported commands are rendered in. (default: <code>#cc0000</code>)</li>
+</ul>
+<p>For example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">katex.render(<span class="string">"c = \\pm\\sqrt&#123;a^2 + b^2&#125;"</span>, element, &#123; displayMode: <span class="literal">true</span> &#125;);</div></pre></td></tr></table></figure>
+<h4 id="Automatic-rendering-of-math-on-a-page"><a href="#Automatic-rendering-of-math-on-a-page" class="headerlink" title="Automatic rendering of math on a page"></a>Automatic rendering of math on a page</h4><p>Math on the page can be automatically rendered using the auto-render extension. See <a href="contrib/auto-render/README.md">the Auto-render README</a> for more information.</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/">KaTeX The fastest math typesetting library for the web</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Smile921</a></p>
+        <p><span>发布时间:</span>2016-08-23, 09:22:59</p>
+        <p><span>最后更新:</span>2017-03-09, 17:18:38</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/" title="KaTeX The fastest math typesetting library for the web">http://smile921.github.io/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://smile921.github.io/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/　　作者: Smile921" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/">
+                    electron Build cross platform desktop apps with JavaScript, HTML, and CSS
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/201608undefinedoracle-存储过程解题示例一/">
+                    oracle 存储过程解题示例一
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#KaTeX-简介"><span class="toc-number">1.</span> <span class="toc-text">KaTeX 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#examples"><span class="toc-number">1.1.</span> <span class="toc-text">examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Simple-API-no-dependencies-–-yet-super-fast-on-all-major-browsers"><span class="toc-number">1.2.</span> <span class="toc-text">Simple API, no dependencies – yet super-fast on all major browsers.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Usage"><span class="toc-number">1.3.</span> <span class="toc-text">Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#In-browser-rendering"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">In-browser rendering</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Server-side-rendering-or-rendering-to-a-string"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">Server side rendering or rendering to a string</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Rendering-options"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">Rendering options</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Automatic-rendering-of-math-on-a-page"><span class="toc-number">1.3.0.4.</span> <span class="toc-text">Automatic rendering of math on a page</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/" title="上一篇: electron Build cross platform desktop apps with JavaScript, HTML, and CSS">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/201608undefinedoracle-存储过程解题示例一/" title="下一篇: oracle 存储过程解题示例一">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/201703undefinedmongodb 实战笔记/">mongodb 3.4.x 入门笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201611undefinedspaceemacs-学习笔记/">spaceemacs 学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201610undefinedWhy-is-char-preferred-over-String-for-passwords-in-Java/">Why is char[] preferred over String for passwords in Java?</a></li><li class="post-list-item"><a class="post-list-link" href="/201609undefinedChromium-命令行启动参数/">Chromium 命令行启动参数 </a></li><li class="post-list-item"><a class="post-list-link" href="/201609undefined目前比较流行的Python科学计算发行版/">目前比较流行的Python科学计算发行版</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedmysql-root密码重置/">mysql  root密码重置</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/">electron Build cross platform desktop apps with JavaScript, HTML, and CSS</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/">KaTeX The fastest math typesetting library for the web</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedoracle-存储过程解题示例一/">oracle 存储过程解题示例一</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedAndroid-开发最佳实践/">Android 开发最佳实践</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedjava-jpda-远程调试/">java jpda 远程调试</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefined动手安装-Haskell-koans-笔记/">动手安装 Haskell koans 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedawesome-koans/">awesome koans</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedBT种子嗅探器原理/">BT种子嗅探器原理</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedNodeBB-基于-nodejs实现的社区论坛/">NodeBB 基于 nodejs实现的社区论坛</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedONLYOFFICE-协同办公/">ONLYOFFICE 协同办公</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefineddocker-hub-国内加速/">docker hub 国内加速</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedTelegram-一款开源简洁的IM/">Telegram  一款开源简洁的IM</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedAPI-Documentation-Browser/">API Documentation Browser</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinednginx-lua-waf/">nginx lua waf</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedgitlab-实战笔记/">gitlab 实战笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedRAT（远程访问木马）名为SpyNote——这是个可对Android系统实现远程监听的工具/">RAT（远程访问木马）名为 SpyNote ——这是个可对 Android 系统实现远程监听的工具</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedsecurity-list/">security list </a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedhaskell-资料收集/">haskell 资料收集</a></li><li class="post-list-item"><a class="post-list-link" href="/201607undefinedhexo-for-fun/">hexo-for-fun</a></li><li class="post-list-item"><a class="post-list-link" href="/201607undefinedhello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Smile921
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a>  <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

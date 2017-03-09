@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Smile921" />
+
+
+
+<meta name="description" content="新装的mysql 或者用过一段时间的测试机mysql数据库忘了密码，又不想重装。想来应该有办法可以重置密码。 首先想到mysqladmin 但是尝试在后无果，还是需要密码。经过一番查找尝试还是有高人，废话不多说了，光说不练假把式。看我如何操作
+ 12345678/etc/init.d/mysql stopmysqld_safe --user=mysql --skip-grant-tables -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql  root密码重置">
+<meta property="og:url" content="http://smile921.github.io/201608undefinedmysql-root密码重置/index.html">
+<meta property="og:site_name" content="关注网络安全动态，追求心中的向往">
+<meta property="og:description" content="新装的mysql 或者用过一段时间的测试机mysql数据库忘了密码，又不想重装。想来应该有办法可以重置密码。 首先想到mysqladmin 但是尝试在后无果，还是需要密码。经过一番查找尝试还是有高人，废话不多说了，光说不练假把式。看我如何操作
+ 12345678/etc/init.d/mysql stopmysqld_safe --user=mysql --skip-grant-tables -">
+<meta property="og:updated_time" content="2017-03-09T09:18:38.032Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql  root密码重置">
+<meta name="twitter:description" content="新装的mysql 或者用过一段时间的测试机mysql数据库忘了密码，又不想重装。想来应该有办法可以重置密码。 首先想到mysqladmin 但是尝试在后无果，还是需要密码。经过一番查找尝试还是有高人，废话不多说了，光说不练假把式。看我如何操作
+ 12345678/etc/init.d/mysql stopmysqld_safe --user=mysql --skip-grant-tables -">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="关注网络安全动态，追求心中的向往" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>mysql  root密码重置 | 关注网络安全动态，追求心中的向往</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/timg.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Smile921</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">迈入新世界，培养独当一面的 Web 前端工程师！</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/.">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/security">随笔</a></li>
+                        
+                            <li><a href="/archives/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:ruby2010ruby@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/smile921" title="GitHub"></a>
+                            
+                                <a class="fa V2EX" href="http://www.v2ex.com/member/lanyi921" title="V2EX"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IM/">IM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KaTeX/">KaTeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Math/">Math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TeX/">TeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/awesome/">awesome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bt/">bt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devdoc/">devdoc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dht/">dht</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/electron/">electron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/forum/">forum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fun/">fun</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haskell/">haskell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello/">hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jpda/">jpda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koan/">koan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koans/">koans</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lua/">lua</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/office/">office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ruby/">ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/science/">science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spcaemacs/">spcaemacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/">telegram</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutor/">tutor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/waf/">waf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/存储过程/">存储过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/题解/">题解</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Smile921</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/timg.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Smile921</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">迈入新世界，培养独当一面的 Web 前端工程师！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/.">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/security">随笔</a></li>
+                
+                    <li><a href="/archives/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:ruby2010ruby@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/smile921" title="GitHub"></a>
+                            
+                                <a class="fa V2EX" target="_blank" href="http://www.v2ex.com/member/lanyi921" title="V2EX"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-mysql-root密码重置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/201608undefinedmysql-root密码重置/" class="article-date">
+      <time datetime="2016-08-30T00:36:57.000Z" itemprop="datePublished">2016-08-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql  root密码重置
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p> 新装的mysql 或者用过一段时间的测试机mysql数据库忘了密码，又不想重装。想来应该有办法可以重置密码。<br> 首先想到mysqladmin 但是尝试在后无果，还是需要密码。经过一番查找尝试还是有高人，废话不多说了，光说不练假把式。看我如何操作</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/mysql stop</div><div class="line">mysqld_safe --user=mysql --skip-grant-tables --skip-networking &amp;</div><div class="line">mysql -u root mysql</div><div class="line">update user  set password=password(&apos;mysqlroot@&apos;) where user=&apos;root&apos;;</div><div class="line">FLUSH PRIVILEGES;</div><div class="line">/etc/init.d/mysql restart</div><div class="line">mysql -uroot -p</div><div class="line">输入先设置的密码 ok</div></pre></td></tr></table></figure>
+<h2 id="python-操作mysql"><a href="#python-操作mysql" class="headerlink" title="python 操作mysql"></a>python 操作mysql</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div></pre></td><td class="code"><pre><div class="line">#!/bin/python</div><div class="line">#coding=utf-8</div><div class="line">import MySQLdb</div><div class="line">import time</div><div class="line">from collections import OrderedDict</div><div class="line">from colorama import init, Fore</div><div class="line"></div><div class="line">class Mysql(object):</div><div class="line"></div><div class="line">    &apos;&apos;&apos;</div><div class="line">        获取当前系统时间 </div><div class="line">        2016-08-30 11:13:18</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    def get_current_time(self):</div><div class="line">        created_time = time.strftime(</div><div class="line">            &apos;[%Y-%m-%d %H:%M:%S]&apos;,</div><div class="line">            time.localtime(</div><div class="line">                time.time()))</div><div class="line">        created_time = created_time.split(&apos;[&apos;)[1]</div><div class="line">        created_time = created_time.split(&apos;]&apos;)[0]</div><div class="line">        return created_time</div><div class="line"></div><div class="line">    &apos;&apos;&apos;</div><div class="line">        host</div><div class="line">        user</div><div class="line">        password</div><div class="line">        db</div><div class="line">        port</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    def __init__(self, host, user, passwd, db, port):</div><div class="line">        try:</div><div class="line">            self.db = MySQLdb.connect(</div><div class="line">                host=host,</div><div class="line">                user=user,</div><div class="line">                passwd=passwd,</div><div class="line">                db=db,</div><div class="line">                port=port,</div><div class="line">                charset=&apos;utf8&apos;)</div><div class="line">            self.cur = self.db.cursor()</div><div class="line">        except MySQLdb.Error as e:</div><div class="line">            print Fore.RED + &apos;连接数据库失败&apos;</div><div class="line">            print Fore.RED + self.get_current_time(), &apos;[%Y-%m-%d %H:%M:%S]&apos;, time.localtime(time.time())</div><div class="line"></div><div class="line">    &apos;&apos;&apos;</div><div class="line">        table 表名称</div><div class="line">        my_dict 要插入的数据，一个有序字典</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    def insert_data(self, table, my_dict):</div><div class="line">        try:</div><div class="line">            cols = &apos;,&apos;.join(my_dict.keys())</div><div class="line">            values = &apos;&quot;,&quot;&apos;.join(my_dict.values())</div><div class="line">            values = &apos;&quot;&apos; + values + &apos;&quot;&apos;</div><div class="line">            try:</div><div class="line">              #  print &quot;table:%s,cols:%s,values:%s.&quot; %(table, cols, values)</div><div class="line">                sql = &quot;insert into %s (%s) values(%s)&quot; % (table, cols, values)</div><div class="line">              #  print &quot;sql:&quot;,sql</div><div class="line">                result = self.cur.execute(sql)</div><div class="line">                self.db.commit()</div><div class="line">                if result:</div><div class="line">                    return 1</div><div class="line">                else:</div><div class="line">                    return 0</div><div class="line">            except MySQLdb.Error as e:</div><div class="line">                self.db.rollback()</div><div class="line">                if &quot;key &apos;PRIMARY&apos;&quot; in e.args[1]:</div><div class="line">                    print Fore.RED + self.get_current_time(), &quot;数据已存在，未插入数据&quot;</div><div class="line">                else:</div><div class="line">                    print Fore.RED + self.get_current_time(), &quot;插入数据失败，原因 %d: %s&quot; % (e.args[0], e.args[1])</div><div class="line">        except MySQLdb.Error as e:</div><div class="line">            print Fore.RED + self.get_current_time(), &quot;数据库错误，原因%d: %s&quot; % (e.args[0], e.args[1])</div><div class="line"></div><div class="line">    def query_data(self,sql):</div><div class="line">        try:</div><div class="line">            try:</div><div class="line">                result = self.cur.execute(sql)</div><div class="line">                self.db.commit()</div><div class="line">                if result:</div><div class="line">                    return 1</div><div class="line">                else:</div><div class="line">                    return 0</div><div class="line">            except MySQLdb.Error as e:</div><div class="line">                self.db.rollback()</div><div class="line">                if &quot;key &apos;PRIMARY&apos;&quot; in e.args[1]:</div><div class="line">                    print Fore.RED + self.get_current_time(), &quot;数据已存在，未插入数据&quot;</div><div class="line">                else:</div><div class="line">                    print Fore.RED + self.get_current_time(), &quot;插入数据失败，原因 %d: %s&quot; % (e.args[0], e.args[1])</div><div class="line">            pass</div><div class="line">        except MySQLdb.Error as e:</div><div class="line">            print Fore.RED + self.get_current_time(), &quot;数据库错误，原因%d: %s&quot; % (e.args[0], e.args[1])</div><div class="line">            </div><div class="line">DATABASES = &#123;</div><div class="line">    &apos;default&apos;: &#123;</div><div class="line">        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,</div><div class="line">        &apos;NAME&apos;: &apos;xxx&apos;,</div><div class="line">        &apos;HOST&apos;: &apos;10.x.x5&apos;,</div><div class="line">        &apos;USER&apos;: &apos;wxspider&apos;,</div><div class="line">        &apos;PASSWORD&apos;: &apos;wxxxl235&apos;,</div><div class="line">        &apos;PORT&apos;: 3306</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">           </div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    host = DATABASES[&apos;default&apos;][&apos;HOST&apos;]</div><div class="line">    user = DATABASES[&apos;default&apos;][&apos;USER&apos;]</div><div class="line">    passwd = DATABASES[&apos;default&apos;][&apos;PASSWORD&apos;]</div><div class="line">    db = DATABASES[&apos;default&apos;][&apos;NAME&apos;]</div><div class="line">    port = DATABASES[&apos;default&apos;][&apos;PORT&apos;]</div><div class="line">    mysql = Mysql(host, user, passwd, db, port)</div><div class="line">    created_time = mysql.get_current_time()</div><div class="line">    print created_time</div><div class="line">    dicts = OrderedDict()</div><div class="line">    dicts[&apos;id&apos;]=&apos;2&apos;</div><div class="line">    dicts[&apos;name&apos;]=&apos;python&apos;</div><div class="line">    tname=&apos;test&apos;</div><div class="line">    # 测试插入数据</div><div class="line">    result = mysql.insert_data(tname, dicts)</div><div class="line">    if result:</div><div class="line">        print Fore.GREEN + &quot;article_table：数据保存成功！&quot;</div><div class="line">    else:</div><div class="line">        print Fore.RED + &quot;article_table：数据保存失败！&quot;</div><div class="line"></div><div class="line">    sql = &apos;select * from test&apos;</div><div class="line">    #     测试查询数据</div><div class="line">    result = mysql.query_data(sql)</div><div class="line">    if result:</div><div class="line">        print Fore.GREEN + &quot;：成功！&quot;</div><div class="line">        tp = mysql.cur.fetchall()</div><div class="line">        print type(tp)</div><div class="line">        print tp</div><div class="line">    else:</div><div class="line">        print Fore.RED + &quot;：失败！&quot;</div><div class="line">    print result</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/201608undefinedmysql-root密码重置/">mysql  root密码重置</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Smile921</a></p>
+        <p><span>发布时间:</span>2016-08-30, 08:36:57</p>
+        <p><span>最后更新:</span>2017-03-09, 17:18:38</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/201608undefinedmysql-root密码重置/" title="mysql  root密码重置">http://smile921.github.io/201608undefinedmysql-root密码重置/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://smile921.github.io/201608undefinedmysql-root密码重置/　　作者: Smile921" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/201609undefined目前比较流行的Python科学计算发行版/">
+                    目前比较流行的Python科学计算发行版
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/">
+                    electron Build cross platform desktop apps with JavaScript, HTML, and CSS
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#python-操作mysql"><span class="toc-number">1.</span> <span class="toc-text">python 操作mysql</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/201609undefined目前比较流行的Python科学计算发行版/" title="上一篇: 目前比较流行的Python科学计算发行版">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/" title="下一篇: electron Build cross platform desktop apps with JavaScript, HTML, and CSS">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/201703undefinedmongodb 实战笔记/">mongodb 3.4.x 入门笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201611undefinedspaceemacs-学习笔记/">spaceemacs 学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201610undefinedWhy-is-char-preferred-over-String-for-passwords-in-Java/">Why is char[] preferred over String for passwords in Java?</a></li><li class="post-list-item"><a class="post-list-link" href="/201609undefinedChromium-命令行启动参数/">Chromium 命令行启动参数 </a></li><li class="post-list-item"><a class="post-list-link" href="/201609undefined目前比较流行的Python科学计算发行版/">目前比较流行的Python科学计算发行版</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedmysql-root密码重置/">mysql  root密码重置</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/">electron Build cross platform desktop apps with JavaScript, HTML, and CSS</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/">KaTeX The fastest math typesetting library for the web</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedoracle-存储过程解题示例一/">oracle 存储过程解题示例一</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedAndroid-开发最佳实践/">Android 开发最佳实践</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedjava-jpda-远程调试/">java jpda 远程调试</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefined动手安装-Haskell-koans-笔记/">动手安装 Haskell koans 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedawesome-koans/">awesome koans</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedBT种子嗅探器原理/">BT种子嗅探器原理</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedNodeBB-基于-nodejs实现的社区论坛/">NodeBB 基于 nodejs实现的社区论坛</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedONLYOFFICE-协同办公/">ONLYOFFICE 协同办公</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefineddocker-hub-国内加速/">docker hub 国内加速</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedTelegram-一款开源简洁的IM/">Telegram  一款开源简洁的IM</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedAPI-Documentation-Browser/">API Documentation Browser</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinednginx-lua-waf/">nginx lua waf</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedgitlab-实战笔记/">gitlab 实战笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedRAT（远程访问木马）名为SpyNote——这是个可对Android系统实现远程监听的工具/">RAT（远程访问木马）名为 SpyNote ——这是个可对 Android 系统实现远程监听的工具</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedsecurity-list/">security list </a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedhaskell-资料收集/">haskell 资料收集</a></li><li class="post-list-item"><a class="post-list-link" href="/201607undefinedhexo-for-fun/">hexo-for-fun</a></li><li class="post-list-item"><a class="post-list-link" href="/201607undefinedhello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Smile921
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a>  <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

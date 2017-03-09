@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Smile921" />
+
+
+
+<meta name="description" content="快速入门Electron 可以让你使用纯 JavaScript 调用丰富的原生 APIs 来创造桌面应用。你可以把它看作一个专注于桌面应用的 Node.js 的变体，而不是 Web 服务器。
+这不意味着 Electron 是绑定了 GUI 库的 JavaScript。相反，Electron 使用 web 页面作为它的 GUI，所以你能把它看作成一个被 JavaScript 控制的，精简版的 Chr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="electron Build cross platform desktop apps with JavaScript, HTML, and CSS">
+<meta property="og:url" content="http://smile921.github.io/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/index.html">
+<meta property="og:site_name" content="关注网络安全动态，追求心中的向往">
+<meta property="og:description" content="快速入门Electron 可以让你使用纯 JavaScript 调用丰富的原生 APIs 来创造桌面应用。你可以把它看作一个专注于桌面应用的 Node.js 的变体，而不是 Web 服务器。
+这不意味着 Electron 是绑定了 GUI 库的 JavaScript。相反，Electron 使用 web 页面作为它的 GUI，所以你能把它看作成一个被 JavaScript 控制的，精简版的 Chr">
+<meta property="og:updated_time" content="2017-03-09T09:18:38.031Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="electron Build cross platform desktop apps with JavaScript, HTML, and CSS">
+<meta name="twitter:description" content="快速入门Electron 可以让你使用纯 JavaScript 调用丰富的原生 APIs 来创造桌面应用。你可以把它看作一个专注于桌面应用的 Node.js 的变体，而不是 Web 服务器。
+这不意味着 Electron 是绑定了 GUI 库的 JavaScript。相反，Electron 使用 web 页面作为它的 GUI，所以你能把它看作成一个被 JavaScript 控制的，精简版的 Chr">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="关注网络安全动态，追求心中的向往" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>electron Build cross platform desktop apps with JavaScript, HTML, and CSS | 关注网络安全动态，追求心中的向往</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/timg.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Smile921</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">迈入新世界，培养独当一面的 Web 前端工程师！</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/.">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/security">随笔</a></li>
+                        
+                            <li><a href="/archives/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:ruby2010ruby@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/smile921" title="GitHub"></a>
+                            
+                                <a class="fa V2EX" href="http://www.v2ex.com/member/lanyi921" title="V2EX"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IM/">IM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KaTeX/">KaTeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Math/">Math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TeX/">TeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/awesome/">awesome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bt/">bt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devdoc/">devdoc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dht/">dht</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/electron/">electron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/forum/">forum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fun/">fun</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haskell/">haskell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello/">hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jpda/">jpda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koan/">koan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koans/">koans</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lua/">lua</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/office/">office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ruby/">ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/science/">science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spcaemacs/">spcaemacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/">telegram</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutor/">tutor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/waf/">waf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/存储过程/">存储过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/题解/">题解</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Smile921</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/timg.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Smile921</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">迈入新世界，培养独当一面的 Web 前端工程师！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/.">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/security">随笔</a></li>
+                
+                    <li><a href="/archives/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:ruby2010ruby@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/smile921" title="GitHub"></a>
+                            
+                                <a class="fa V2EX" target="_blank" href="http://www.v2ex.com/member/lanyi921" title="V2EX"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-electron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/" class="article-date">
+      <time datetime="2016-08-23T03:18:31.000Z" itemprop="datePublished">2016-08-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      electron Build cross platform desktop apps with JavaScript, HTML, and CSS
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/electron/">electron</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h1><p>Electron 可以让你使用纯 JavaScript 调用丰富的原生 APIs 来创造桌面应用。你可以把它看作一个专注于桌面应用的 Node.js 的变体，而不是 Web 服务器。</p>
+<p>这不意味着 Electron 是绑定了 GUI 库的 JavaScript。相反，Electron 使用 web 页面作为它的 GUI，所以你能把它看作成一个被 JavaScript 控制的，精简版的 Chromium 浏览器。</p>
+<h2 id="主进程"><a href="#主进程" class="headerlink" title="主进程"></a>主进程</h2><p>在 Electron 里，运行 <code>package.json</code> 里 <code>main</code> 脚本的进程被称为<strong>主进程</strong>。在主进程运行的脚本可以以创建 web 页面的形式展示 GUI。</p>
+<h2 id="渲染进程"><a href="#渲染进程" class="headerlink" title="渲染进程"></a>渲染进程</h2><p>由于 Electron 使用 Chromium 来展示页面，所以 Chromium 的多进程结构也被充分利用。每个 Electron 的页面都在运行着自己的进程，这样的进程我们称之为<strong>渲染进程</strong>。</p>
+<p>在一般浏览器中，网页通常会在沙盒环境下运行，并且不允许访问原生资源。然而，Electron 用户拥有在网页中调用 Node.js 的 APIs 的能力，可以与底层操作系统直接交互。</p>
+<h2 id="主进程与渲染进程的区别"><a href="#主进程与渲染进程的区别" class="headerlink" title="主进程与渲染进程的区别"></a>主进程与渲染进程的区别</h2><p>主进程使用 <code>BrowserWindow</code> 实例创建页面。每个 <code>BrowserWindow</code> 实例都在自己的渲染进程里运行页面。当一个 <code>BrowserWindow</code> 实例被销毁后，相应的渲染进程也会被终止。</p>
+<p>主进程管理所有页面和与之对应的渲染进程。每个渲染进程都是相互独立的，并且只关心他们自己的页面。</p>
+<p>由于在页面里管理原生 GUI 资源是非常危险而且容易造成资源泄露，所以在页面调用 GUI 相关的 APIs 是不被允许的。如果你想在网页里使用 GUI 操作，其对应的渲染进程必须与主进程进行通讯，请求主进程进行相关的 GUI 操作。</p>
+<p>在 Electron，我们提供几种方法用于主进程和渲染进程之间的通讯。像 <a href="https://github.com/electron/electron/blob/v1.1.3/docs/api/ipc-renderer.md" target="_blank" rel="external">ipcRenderer</a> 和 <a href="https://github.com/electron/electron/blob/v1.1.3/docs/api/ipc-main.md" target="_blank" rel="external">ipcMain</a> 模块用于发送消息， <a href="https://github.com/electron/electron/blob/v1.1.3/docs/api/remote.md" target="_blank" rel="external">remote</a> 模块用于 RPC 方式通讯。这些内容都可以在一个 FAQ 中查看 <a href="https://github.com/electron/electron/blob/v1.1.3/docs/faq/electron-faq.md#how-to-share-data-between-web-pages" target="_blank" rel="external">how to share data between web pages</a>。</p>
+<h1 id="打造你第一个-Electron-应用"><a href="#打造你第一个-Electron-应用" class="headerlink" title="打造你第一个 Electron 应用"></a>打造你第一个 Electron 应用</h1><p>大体上，一个 Electron 应用的目录结构如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">your-app/</div><div class="line">├── package.json</div><div class="line">├── main.js</div><div class="line">└── index.html</div></pre></td></tr></table></figure></p>
+<p><code>package.json</code>的格式和 Node 的完全一致，并且那个被 <code>main</code> 字段声明的脚本文件是你的应用的启动脚本，它运行在主进程上。你应用里的 <code>package.json</code> 看起来应该像：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"name"</span>    : <span class="string">"your-app"</span>,</div><div class="line">  <span class="attr">"version"</span> : <span class="string">"0.1.0"</span>,</div><div class="line">  <span class="attr">"main"</span>    : <span class="string">"main.js"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>：如果 <code>main</code> 字段没有在 <code>package.json</code> 声明，Electron会优先加载 <code>index.js</code>。</p>
+<p><code>main.js</code> 应该用于创建窗口和处理系统事件，一个典型的例子如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> electron = <span class="built_in">require</span>(<span class="string">'electron'</span>);</div><div class="line"><span class="comment">// 控制应用生命周期的模块。</span></div><div class="line"><span class="keyword">const</span> &#123;app&#125; = electron;</div><div class="line"><span class="comment">// 创建原生浏览器窗口的模块。</span></div><div class="line"><span class="keyword">const</span> &#123;BrowserWindow&#125; = electron;</div><div class="line"></div><div class="line"><span class="comment">// 保持一个对于 window 对象的全局引用，如果你不这样做，</span></div><div class="line"><span class="comment">// 当 JavaScript 对象被垃圾回收， window 会被自动地关闭</span></div><div class="line"><span class="keyword">let</span> mainWindow;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createWindow</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// 创建浏览器窗口。</span></div><div class="line">  mainWindow = <span class="keyword">new</span> BrowserWindow(&#123;width: <span class="number">800</span>, height: <span class="number">600</span>&#125;);</div><div class="line"></div><div class="line">  <span class="comment">// 加载应用的 index.html。</span></div><div class="line">  mainWindow.loadURL(<span class="string">`file://<span class="subst">$&#123;__dirname&#125;</span>/index.html`</span>);</div><div class="line"></div><div class="line">  <span class="comment">// 启用开发工具。</span></div><div class="line">  mainWindow.webContents.openDevTools();</div><div class="line"></div><div class="line">  <span class="comment">// 当 window 被关闭，这个事件会被触发。</span></div><div class="line">  mainWindow.on(<span class="string">'closed'</span>, () =&gt; &#123;</div><div class="line">    <span class="comment">// 取消引用 window 对象，如果你的应用支持多窗口的话，</span></div><div class="line">    <span class="comment">// 通常会把多个 window 对象存放在一个数组里面，</span></div><div class="line">    <span class="comment">// 与此同时，你应该删除相应的元素。</span></div><div class="line">    mainWindow = <span class="literal">null</span>;</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Electron 会在初始化后并准备</span></div><div class="line"><span class="comment">// 创建浏览器窗口时，调用这个函数。</span></div><div class="line"><span class="comment">// 部分 API 在 ready 事件触发后才能使用。</span></div><div class="line">app.on(<span class="string">'ready'</span>, createWindow);</div><div class="line"></div><div class="line"><span class="comment">// 当全部窗口关闭时退出。</span></div><div class="line">app.on(<span class="string">'window-all-closed'</span>, () =&gt; &#123;</div><div class="line">  <span class="comment">// 在 macOS 上，除非用户用 Cmd + Q 确定地退出，</span></div><div class="line">  <span class="comment">// 否则绝大部分应用及其菜单栏会保持激活。</span></div><div class="line">  <span class="keyword">if</span> (process.platform !== <span class="string">'darwin'</span>) &#123;</div><div class="line">    app.quit();</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.on(<span class="string">'activate'</span>, () =&gt; &#123;</div><div class="line">  <span class="comment">// 在 macOS 上，当点击 dock 图标并且该应用没有打开的窗口时，</span></div><div class="line">  <span class="comment">// 绝大部分应用会重新创建一个窗口。</span></div><div class="line">  <span class="keyword">if</span> (mainWindow === <span class="literal">null</span>) &#123;</div><div class="line">    createWindow();</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 在这文件，你可以续写应用剩下主进程代码。</span></div><div class="line"><span class="comment">// 也可以拆分成几个文件，然后用 require 导入。</span></div></pre></td></tr></table></figure></p>
+<p>最后，你想展示的 <code>index.html</code> ：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    We are using node <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(process.versions.node)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>,</div><div class="line">    Chrome <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(process.versions.chrome)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>,</div><div class="line">    and Electron <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(process.versions.electron)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>.</div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="运行你的应用"><a href="#运行你的应用" class="headerlink" title="运行你的应用"></a>运行你的应用</h1><p>一旦你创建了最初的 <code>main.js</code>， <code>index.html</code> 和 <code>package.json</code> 这几个文件，你可能会想尝试在本地运行并测试，看看是不是和期望的那样正常运行。</p>
+<h2 id="electron-prebuilt"><a href="#electron-prebuilt" class="headerlink" title="electron-prebuilt"></a>electron-prebuilt</h2><p><a href="https://github.com/electron-userland/electron-prebuilt" target="_blank" rel="external">electron-prebuilt</a> 是一个 <code>npm</code> 模块，包含所使用的 Electron 预编译版本。<br>如果你已经用 <code>npm</code> 全局安装了它，你只需要按照如下方式直接运行你的应用：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">electron .</div></pre></td></tr></table></figure></p>
+<p>如果你是局部安装，那运行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./node_modules/.bin/electron .</div></pre></td></tr></table></figure></p>
+<h2 id="手工下载-Electron-二进制文件"><a href="#手工下载-Electron-二进制文件" class="headerlink" title="手工下载 Electron 二进制文件"></a>手工下载 Electron 二进制文件</h2><p>如果你手工下载了 Electron 的二进制文件，你也可以直接使用其中的二进制文件直接运行你的应用。</p>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ .\electron\electron.exe your-app\</div></pre></td></tr></table></figure>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./electron/electron your-app/</div></pre></td></tr></table></figure>
+<h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./Electron.app/Contents/MacOS/Electron your-app/</div></pre></td></tr></table></figure>
+<p><code>Electron.app</code> 里面是 Electron 发布包，你可以在 <a href="https://github.com/electron/electron/releases" target="_blank" rel="external">这里</a> 下载到。</p>
+<h1 id="以发行版本运行"><a href="#以发行版本运行" class="headerlink" title="以发行版本运行"></a>以发行版本运行</h1><p>在你完成了你的应用后，你可以按照 <a href="https://github.com/electron/electron/blob/v1.1.3/docs/tutorial/application-distribution.md" target="_blank" rel="external">应用部署</a> 指导发布一个版本，并且以已经打包好的形式运行应用。</p>
+<h1 id="参照下面例子"><a href="#参照下面例子" class="headerlink" title="参照下面例子"></a>参照下面例子</h1><p>复制并且运行这个库 <a href="https://github.com/electron/electron-quick-start" target="_blank" rel="external">electron/electron-quick-start</a>。</p>
+<p><em>注意：</em>运行时需要你的系统已经安装了 <a href="https://git-scm.com/" target="_blank" rel="external">Git</a> 和 <a href="https://nodejs.org/en/download/" target="_blank" rel="external">Node.js</a>（包含 <a href="https://www.npmjs.com/" target="_blank" rel="external">npm</a>）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 克隆这仓库</span></div><div class="line">$ git <span class="built_in">clone</span> https://github.com/electron/electron-quick-start</div><div class="line"><span class="comment"># 进入仓库</span></div><div class="line">$ <span class="built_in">cd</span> electron-quick-start</div><div class="line"><span class="comment"># 安装依赖库并运行应用</span></div><div class="line">$ npm install &amp;&amp; npm start</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/">electron Build cross platform desktop apps with JavaScript, HTML, and CSS</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Smile921</a></p>
+        <p><span>发布时间:</span>2016-08-23, 11:18:31</p>
+        <p><span>最后更新:</span>2017-03-09, 17:18:38</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/" title="electron Build cross platform desktop apps with JavaScript, HTML, and CSS">http://smile921.github.io/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://smile921.github.io/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/　　作者: Smile921" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/201608undefinedmysql-root密码重置/">
+                    mysql  root密码重置
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/">
+                    KaTeX The fastest math typesetting library for the web
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速入门"><span class="toc-number">1.</span> <span class="toc-text">快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主进程"><span class="toc-number">1.1.</span> <span class="toc-text">主进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#渲染进程"><span class="toc-number">1.2.</span> <span class="toc-text">渲染进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主进程与渲染进程的区别"><span class="toc-number">1.3.</span> <span class="toc-text">主进程与渲染进程的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#打造你第一个-Electron-应用"><span class="toc-number">2.</span> <span class="toc-text">打造你第一个 Electron 应用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#运行你的应用"><span class="toc-number">3.</span> <span class="toc-text">运行你的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#electron-prebuilt"><span class="toc-number">3.1.</span> <span class="toc-text">electron-prebuilt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手工下载-Electron-二进制文件"><span class="toc-number">3.2.</span> <span class="toc-text">手工下载 Electron 二进制文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-number">3.2.1.</span> <span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux"><span class="toc-number">3.2.2.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS"><span class="toc-number">3.2.3.</span> <span class="toc-text">macOS</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#以发行版本运行"><span class="toc-number">4.</span> <span class="toc-text">以发行版本运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参照下面例子"><span class="toc-number">5.</span> <span class="toc-text">参照下面例子</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/201608undefinedmysql-root密码重置/" title="上一篇: mysql  root密码重置">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/" title="下一篇: KaTeX The fastest math typesetting library for the web">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/201703undefinedmongodb 实战笔记/">mongodb 3.4.x 入门笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201611undefinedspaceemacs-学习笔记/">spaceemacs 学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201610undefinedWhy-is-char-preferred-over-String-for-passwords-in-Java/">Why is char[] preferred over String for passwords in Java?</a></li><li class="post-list-item"><a class="post-list-link" href="/201609undefinedChromium-命令行启动参数/">Chromium 命令行启动参数 </a></li><li class="post-list-item"><a class="post-list-link" href="/201609undefined目前比较流行的Python科学计算发行版/">目前比较流行的Python科学计算发行版</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedmysql-root密码重置/">mysql  root密码重置</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/">electron Build cross platform desktop apps with JavaScript, HTML, and CSS</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/">KaTeX The fastest math typesetting library for the web</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedoracle-存储过程解题示例一/">oracle 存储过程解题示例一</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedAndroid-开发最佳实践/">Android 开发最佳实践</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedjava-jpda-远程调试/">java jpda 远程调试</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefined动手安装-Haskell-koans-笔记/">动手安装 Haskell koans 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedawesome-koans/">awesome koans</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedBT种子嗅探器原理/">BT种子嗅探器原理</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedNodeBB-基于-nodejs实现的社区论坛/">NodeBB 基于 nodejs实现的社区论坛</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedONLYOFFICE-协同办公/">ONLYOFFICE 协同办公</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefineddocker-hub-国内加速/">docker hub 国内加速</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedTelegram-一款开源简洁的IM/">Telegram  一款开源简洁的IM</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedAPI-Documentation-Browser/">API Documentation Browser</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinednginx-lua-waf/">nginx lua waf</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedgitlab-实战笔记/">gitlab 实战笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedRAT（远程访问木马）名为SpyNote——这是个可对Android系统实现远程监听的工具/">RAT（远程访问木马）名为 SpyNote ——这是个可对 Android 系统实现远程监听的工具</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedsecurity-list/">security list </a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedhaskell-资料收集/">haskell 资料收集</a></li><li class="post-list-item"><a class="post-list-link" href="/201607undefinedhexo-for-fun/">hexo-for-fun</a></li><li class="post-list-item"><a class="post-list-link" href="/201607undefinedhello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Smile921
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a>  <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

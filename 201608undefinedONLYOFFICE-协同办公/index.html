@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Smile921" />
+
+
+
+<meta name="description" content="onlyOfficeCollaborative system for managing documents, projects, customer relations and emails in one place
+在线编辑文档
+客户关系管理
+邮件服务
+文档管理
+项目管理
+ONLYOFFICE Community Server is a free open source collaborative">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ONLYOFFICE 协同办公">
+<meta property="og:url" content="http://smile921.github.io/201608undefinedONLYOFFICE-协同办公/index.html">
+<meta property="og:site_name" content="关注网络安全动态，追求心中的向往">
+<meta property="og:description" content="onlyOfficeCollaborative system for managing documents, projects, customer relations and emails in one place
+在线编辑文档
+客户关系管理
+邮件服务
+文档管理
+项目管理
+ONLYOFFICE Community Server is a free open source collaborative">
+<meta property="og:updated_time" content="2017-03-09T09:18:38.028Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ONLYOFFICE 协同办公">
+<meta name="twitter:description" content="onlyOfficeCollaborative system for managing documents, projects, customer relations and emails in one place
+在线编辑文档
+客户关系管理
+邮件服务
+文档管理
+项目管理
+ONLYOFFICE Community Server is a free open source collaborative">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="关注网络安全动态，追求心中的向往" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>ONLYOFFICE 协同办公 | 关注网络安全动态，追求心中的向往</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/timg.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Smile921</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">迈入新世界，培养独当一面的 Web 前端工程师！</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/.">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/security">随笔</a></li>
+                        
+                            <li><a href="/archives/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:ruby2010ruby@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/smile921" title="GitHub"></a>
+                            
+                                <a class="fa V2EX" href="http://www.v2ex.com/member/lanyi921" title="V2EX"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IM/">IM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KaTeX/">KaTeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Math/">Math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TeX/">TeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/awesome/">awesome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bt/">bt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devdoc/">devdoc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dht/">dht</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/electron/">electron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/forum/">forum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fun/">fun</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haskell/">haskell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello/">hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jpda/">jpda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koan/">koan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koans/">koans</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lua/">lua</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/office/">office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ruby/">ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/science/">science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spcaemacs/">spcaemacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/">telegram</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutor/">tutor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/waf/">waf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/存储过程/">存储过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/题解/">题解</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Smile921</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/timg.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Smile921</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">迈入新世界，培养独当一面的 Web 前端工程师！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/.">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/security">随笔</a></li>
+                
+                    <li><a href="/archives/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:ruby2010ruby@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/smile921" title="GitHub"></a>
+                            
+                                <a class="fa V2EX" target="_blank" href="http://www.v2ex.com/member/lanyi921" title="V2EX"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-ONLYOFFICE-协同办公" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/201608undefinedONLYOFFICE-协同办公/" class="article-date">
+      <time datetime="2016-08-11T03:28:16.000Z" itemprop="datePublished">2016-08-11</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ONLYOFFICE 协同办公
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/office/">office</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="onlyOffice"><a href="#onlyOffice" class="headerlink" title="onlyOffice"></a>onlyOffice</h2><h3 id="Collaborative-system-for-managing-documents-projects-customer-relations-and-emails-in-one-place"><a href="#Collaborative-system-for-managing-documents-projects-customer-relations-and-emails-in-one-place" class="headerlink" title="Collaborative system for managing documents, projects, customer relations and emails in one place"></a>Collaborative system for managing documents, projects, customer relations and emails in one place</h3><ul>
+<li>在线编辑文档</li>
+<li>客户关系管理</li>
+<li>邮件服务</li>
+<li>文档管理</li>
+<li>项目管理</li>
+<li><p>ONLYOFFICE Community Server is a free open source collaborative system developed to manage documents, projects, customer relationship and email correspondence, all in one place.</p>
+</li>
+<li><p>Cross platform solution: Linux, Windows</p>
+</li>
+<li>Document management</li>
+<li>Integration with Google Drive, Box, Dropbox, OneDrive, OwnCloud</li>
+<li>File sharing</li>
+<li>Document embedding</li>
+<li>Access rights management</li>
+<li>Customizable CRM</li>
+<li>Web-to-lead form</li>
+<li>Invoicing system</li>
+<li>Project Management</li>
+<li>Gantt Chart</li>
+<li>Milestones, task dependencies and subtasks</li>
+<li>Time tracking</li>
+<li>Automated reports</li>
+<li>Blogs, forums, polls, wiki</li>
+<li>Calendar</li>
+<li>Email Aggregator</li>
+<li>People module (employee database)</li>
+<li>Instant Messenger</li>
+<li>Support of more than 20 languages</li>
+</ul>
+<h2 id="Running-Docker-Image"><a href="#Running-Docker-Image" class="headerlink" title="Running Docker Image"></a>Running Docker Image</h2><pre><code>sudo docker run -i -t -d -p 80:80 onlyoffice/communityserver
+</code></pre><p>This command will install ONLYOFFICE Community Server and all the dependencies it needs.</p>
+<h2 id="Configuring-Docker-Image"><a href="#Configuring-Docker-Image" class="headerlink" title="Configuring Docker Image"></a>Configuring Docker Image</h2><p>###Auto-restart</p>
+<p>To make Docker auto-restart containers on reboot, please use the –restart=always in the docker run command:</p>
+<pre><code>sudo docker run -i -t -d -p 80:80 --restart=always onlyoffice/communityserver
+</code></pre><h3 id="Storing-Data"><a href="#Storing-Data" class="headerlink" title="Storing Data"></a>Storing Data</h3><p>All the data are stored in the specially-designated directories, <strong>data volumes</strong>, at the following location:</p>
+<ul>
+<li><strong>/var/log/onlyoffice</strong> for ONLYOFFICE Community Server logs</li>
+<li><strong>/var/www/onlyoffice/Data</strong> for ONLYOFFICE Community Server data</li>
+<li><strong>/var/lib/mysql</strong> for MySQL database data</li>
+</ul>
+<p>To get access to your data from outside the container, you need to mount the volumes. It can be done by specifying the ‘-v’ option in the docker run command.</p>
+<pre><code>sudo docker run -i -t -d -p 80:80 \
+    -v /app/onlyoffice/CommunityServer/logs:/var/log/onlyoffice  \
+    -v /app/onlyoffice/CommunityServer/data:/var/www/onlyoffice/Data  \
+    -v /app/onlyoffice/CommunityServer/mysql:/var/lib/mysql  onlyoffice/communityserver
+</code></pre><p>Storing the data on the host machine allows you to easily update ONLYOFFICE once the new version is released without losing your data.</p>
+<h3 id="Using-MySQL"><a href="#Using-MySQL" class="headerlink" title="Using MySQL"></a>Using MySQL</h3><p>ONLYOFFICE uses <strong>MySQL 5.5</strong> to store its data.</p>
+<p>By default the MySQL server is started internally. But you can easily configure the image to use an external MySQL database. </p>
+<p>If you have an external MySQL server installed on your machine, execute the following command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sudo docker run -i -t <span class="_">-d</span> -p 80:80 -p 5222:5222 -p 443:443 \</div><div class="line"><span class="_">-e</span> MYSQL_SERVER_HOST=<span class="string">"127.0.0.1"</span> \</div><div class="line"><span class="_">-e</span> MYSQL_SERVER_PORT=<span class="string">"3306"</span> \</div><div class="line"><span class="_">-e</span> MYSQL_SERVER_DB_NAME=<span class="string">"onlyoffice"</span> \</div><div class="line"><span class="_">-e</span> MYSQL_SERVER_USER=<span class="string">"usr_onlyoffice"</span> \</div><div class="line"><span class="_">-e</span> MYSQL_SERVER_PASS=<span class="string">"onlyoffice123"</span> \</div><div class="line">onlyoffice/communityserver</div></pre></td></tr></table></figure>
+<h3 id="Running-ONLYOFFICE-Community-Server-on-Different-Port"><a href="#Running-ONLYOFFICE-Community-Server-on-Different-Port" class="headerlink" title="Running ONLYOFFICE Community Server on Different Port"></a>Running ONLYOFFICE Community Server on Different Port</h3><p>To change the port, use the -p command. E.g.: to make your portal accessible via port 8080 execute the following command:</p>
+<pre><code>sudo docker run -i -t -d -p 8080:80 onlyoffice/communityserver
+</code></pre><h3 id="Exposing-Additional-Ports"><a href="#Exposing-Additional-Ports" class="headerlink" title="Exposing Additional Ports"></a>Exposing Additional Ports</h3><p>The container ports to be exposed for <strong>incoming connections</strong> are the folloing:</p>
+<ul>
+<li><strong>80</strong> for plain HTTP</li>
+<li><strong>443</strong> when HTTPS is enabled (see below)</li>
+<li><strong>5222</strong> for XMPP-compatible instant messaging client (for ONLYOFFICE Talk correct work)</li>
+</ul>
+<p>You can expose ports by specifying the ‘-p’ option in the docker run command.</p>
+<pre><code>sudo docker run -i -t -d -p 80:80  -p 443:443  -p 5222:5222   onlyoffice/communityserver
+</code></pre><p>For <strong>outgoing connections</strong> you need to expose the following ports:</p>
+<ul>
+<li><strong>80</strong> for HTTP</li>
+<li><strong>443</strong> for HTTPS</li>
+</ul>
+<p>Additional ports to be exposed for the mail client correct work:</p>
+<ul>
+<li><strong>25</strong> for SMTP</li>
+<li><strong>465</strong> for SMTPS</li>
+<li><strong>143</strong> for IMAP</li>
+<li><strong>993</strong> for IMAPS</li>
+<li><strong>110</strong> for POP3</li>
+<li><strong>995</strong> for POP3S</li>
+</ul>
+<h3 id="Running-ONLYOFFICE-Community-Server-using-HTTPS"><a href="#Running-ONLYOFFICE-Community-Server-using-HTTPS" class="headerlink" title="Running ONLYOFFICE Community Server using HTTPS"></a>Running ONLYOFFICE Community Server using HTTPS</h3><pre><code>sudo docker run -i -t -d -p 80:80  -p 443:443 \
+-v /app/onlyoffice/CommunityServer/data:/var/www/onlyoffice/Data  onlyoffice/communityserver
+</code></pre><p>Access to the onlyoffice application can be secured using SSL so as to prevent unauthorized access. While a CA certified SSL certificate allows for verification of trust via the CA, a self signed certificates can also provide an equal level of trust verification as long as each client takes some additional steps to verify the identity of your website. Below the instructions on achieving this are provided.</p>
+<p>To secure the application via SSL basically two things are needed:</p>
+<ul>
+<li><strong>Private key (.key)</strong></li>
+<li><strong>SSL certificate (.crt)</strong></li>
+</ul>
+<p>So you need to create and install the following files:</p>
+<pre><code>/app/onlyoffice/CommunityServer/data/certs/onlyoffice.key
+/app/onlyoffice/CommunityServer/data/certs/onlyoffice.crt
+</code></pre><p>When using CA certified certificates, these files are provided to you by the CA. When using self-signed certificates you need to generate these files yourself. Skip the following section if you are have CA certified SSL certificates.</p>
+<h4 id="Generation-of-Self-Signed-Certificates"><a href="#Generation-of-Self-Signed-Certificates" class="headerlink" title="Generation of Self Signed Certificates"></a>Generation of Self Signed Certificates</h4><p>Generation of self-signed SSL certificates involves a simple 3 step procedure.</p>
+<p><strong>STEP 1</strong>: Create the server private key</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl genrsa -out onlyoffice.key 2048</div></pre></td></tr></table></figure>
+<p><strong>STEP 2</strong>: Create the certificate signing request (CSR)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl req -new -key onlyoffice.key -out onlyoffice.csr</div></pre></td></tr></table></figure>
+<p><strong>STEP 3</strong>: Sign the certificate using the private key and CSR</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl x509 -req -days 365 -in onlyoffice.csr -signkey onlyoffice.key -out onlyoffice.crt</div></pre></td></tr></table></figure>
+<p>You have now generated an SSL certificate that’s valid for 365 days.</p>
+<h4 id="Strengthening-the-server-security"><a href="#Strengthening-the-server-security" class="headerlink" title="Strengthening the server security"></a>Strengthening the server security</h4><p>This section provides you with instructions to <a href="https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html" target="_blank" rel="external">strengthen your server security</a>.<br>To achieve this you need to generate stronger DHE parameters.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl dhparam -out dhparam.pem 2048</div></pre></td></tr></table></figure>
+<h4 id="Installation-of-the-SSL-Certificates"><a href="#Installation-of-the-SSL-Certificates" class="headerlink" title="Installation of the SSL Certificates"></a>Installation of the SSL Certificates</h4><p>Out of the four files generated above, you need to install the <code>onlyoffice.key</code>, <code>onlyoffice.crt</code> and <code>dhparam.pem</code> files at the onlyoffice server. The CSR file is not needed, but do make sure you safely backup the file (in case you ever need it again).</p>
+<p>The default path that the onlyoffice application is configured to look for the SSL certificates is at <code>/var/www/onlyoffice/Data/certs</code>, this can however be changed using the <code>SSL_KEY_PATH</code>, <code>SSL_CERTIFICATE_PATH</code> and <code>SSL_DHPARAM_PATH</code> configuration options.</p>
+<p>The <code>/var/www/onlyoffice/Data/</code> path is the path of the data store, which means that you have to create a folder named certs inside <code>/app/onlyoffice/CommunityServer/data/</code> and copy the files into it and as a measure of security you will update the permission on the <code>onlyoffice.key</code> file to only be readable by the owner.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir -p /app/onlyoffice/CommunityServer/data/certs</div><div class="line">cp onlyoffice.key /app/onlyoffice/CommunityServer/data/certs/</div><div class="line">cp onlyoffice.crt /app/onlyoffice/CommunityServer/data/certs/</div><div class="line">cp dhparam.pem /app/onlyoffice/CommunityServer/data/certs/</div><div class="line">chmod 400 /app/onlyoffice/CommunityServer/data/certs/onlyoffice.key</div></pre></td></tr></table></figure>
+<p>You are now just one step away from having our application secured.</p>
+<h4 id="Available-Configuration-Parameters"><a href="#Available-Configuration-Parameters" class="headerlink" title="Available Configuration Parameters"></a>Available Configuration Parameters</h4><p><em>Please refer the docker run command options for the <code>--env-file</code> flag where you can specify all required environment variables in a single file. This will save you from writing a potentially long docker run command.</em></p>
+<p>Below is the complete list of parameters that can be set using environment variables.</p>
+<ul>
+<li><strong>ONLYOFFICE_HTTPS_HSTS_ENABLED</strong>: Advanced configuration option for turning off the HSTS configuration. Applicable only when SSL is in use. Defaults to <code>true</code>.</li>
+<li><strong>ONLYOFFICE_HTTPS_HSTS_MAXAGE</strong>: Advanced configuration option for setting the HSTS max-age in the onlyoffice nginx vHost configuration. Applicable only when SSL is in use. Defaults to <code>31536000</code>.</li>
+<li><strong>SSL_CERTIFICATE_PATH</strong>: The path to the SSL certificate to use. Defaults to <code>/var/www/onlyoffice/Data/certs/onlyoffice.crt</code>.</li>
+<li><strong>SSL_KEY_PATH</strong>: The path to the SSL certificate’s private key. Defaults to <code>/var/www/onlyoffice/Data/certs/onlyoffice.key</code>.</li>
+<li><strong>SSL_DHPARAM_PATH</strong>: The path to the Diffie-Hellman parameter. Defaults to <code>/var/www/onlyoffice/Data/certs/dhparam.pem</code>.</li>
+<li><strong>SSL_VERIFY_CLIENT</strong>: Enable verification of client certificates using the <code>CA_CERTIFICATES_PATH</code> file. Defaults to <code>false</code></li>
+<li><strong>MYSQL_SERVER_HOST</strong>: The IP address or the name of the host where the server is running.</li>
+<li><strong>MYSQL_SERVER_PORT</strong>: The port number.</li>
+<li><strong>MYSQL_SERVER_DB_NAME</strong>: The name of a MySQL database to be created on image startup.</li>
+<li><strong>MYSQL_SERVER_USER</strong>: The new user name with superuser permissions for the MySQL account.</li>
+<li><strong>MYSQL_SERVER_PASS</strong>: The password set for the MySQL account. </li>
+</ul>
+<h2 id="Installing-ONLYOFFICE-Community-Server-integrated-with-Document-and-Mail-Servers"><a href="#Installing-ONLYOFFICE-Community-Server-integrated-with-Document-and-Mail-Servers" class="headerlink" title="Installing ONLYOFFICE Community Server integrated with Document and Mail Servers"></a>Installing ONLYOFFICE Community Server integrated with Document and Mail Servers</h2><p>ONLYOFFICE Community Server is a part of ONLYOFFICE Community Edition that comprises also Document Server and Mail Server. To install them, follow these easy steps:</p>
+<p><strong>STEP 1</strong>: Create the ‘onlyoffice’ network.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker network create --driver bridge onlyoffice</div></pre></td></tr></table></figure>
+<p>Than launch containers on it using the ‘docker run –net onlyoffice’ option:</p>
+<p><strong>STEP 1</strong>: Install ONLYOFFICE Document Server.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo docker run --net onlyoffice -i -t <span class="_">-d</span> --restart=always --name onlyoffice-document-server \</div><div class="line">true-v /app/onlyoffice/DocumentServer/data:/var/www/onlyoffice/Data \</div><div class="line">true-v /app/onlyoffice/DocumentServer/logs:/var/<span class="built_in">log</span>/onlyoffice \</div><div class="line">trueonlyoffice/documentserver</div></pre></td></tr></table></figure>
+<p><strong>STEP 2</strong>: Install ONLYOFFICE Mail Server. </p>
+<p>For the mail server correct work you need to specify its hostname ‘yourdomain.com’.<br>To learn more, refer to the <a href="https://github.com/ONLYOFFICE/Docker-MailServer" title="ONLYOFFICE Mail Server documentation" target="_blank" rel="external">ONLYOFFICE Mail Server documentation</a>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">sudo docker run --net onlyoffice --privileged -i -t <span class="_">-d</span> --restart=always --name onlyoffice-mail-server \</div><div class="line">true-p 25:25 -p 143:143 -p 587:587 \</div><div class="line">true-v /app/onlyoffice/MailServer/data:/var/vmail \</div><div class="line">true-v /app/onlyoffice/MailServer/data/certs:/etc/pki/tls/mailserver \</div><div class="line">true-v /app/onlyoffice/MailServer/logs:/var/<span class="built_in">log</span> \</div><div class="line">true-v /app/onlyoffice/MailServer/mysql:/var/lib/mysql \</div><div class="line">true-h yourdomain.com \</div><div class="line">trueonlyoffice/mailserver</div></pre></td></tr></table></figure>
+<p><strong>STEP 3</strong>: Install ONLYOFFICE Community Server</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">sudo docker run --net onlyoffice -i -t <span class="_">-d</span> --restart=always --name onlyoffice-community-server \</div><div class="line">true-p 80:80 -p 5222:5222 -p 443:443 \</div><div class="line">true-v /app/onlyoffice/CommunityServer/data:/var/www/onlyoffice/Data \</div><div class="line">true-v /app/onlyoffice/CommunityServer/mysql:/var/lib/mysql \</div><div class="line">true-v /app/onlyoffice/CommunityServer/logs:/var/<span class="built_in">log</span>/onlyoffice \</div><div class="line">true-v /app/onlyoffice/DocumentServer/data:/var/www/onlyoffice/DocumentServerData \</div><div class="line">true<span class="_">-e</span> DOCUMENT_SERVER_PORT_80_TCP_ADDR=onlyoffice-document-server \</div><div class="line">true<span class="_">-e</span> MAIL_SERVER_DB_HOST=onlyoffice-mail-server \</div><div class="line">trueonlyoffice/communityserver</div></pre></td></tr></table></figure>
+<p>Alternatively, you can use an automatic installation script to install the whole ONLYOFFICE Community Edition at once. For the mail server correct work you need to specify its hostname ‘yourdomain.com’.</p>
+<p><strong>STEP 1</strong>: Download the Community Edition Docker script file</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://download.onlyoffice.com/install/opensource-install.sh</div></pre></td></tr></table></figure>
+<p><strong>STEP 2</strong>: Install ONLYOFFICE Community Edition executing the following command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bash opensource-install.sh -md yourdomain.com</div></pre></td></tr></table></figure>
+<p>Or, use <a href="https://docs.docker.com/compose/install" title="docker-compose" target="_blank" rel="external">docker-compose</a>. For the mail server correct work you need to specify its hostname ‘yourdomain.com’. Assuming you have docker-compose installed, execute the following command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget https://raw.githubusercontent.com/ONLYOFFICE/Docker-CommunityServer/master/docker-compose.yml</div><div class="line">docker-compose up <span class="_">-d</span></div></pre></td></tr></table></figure>
+<h2 id="Upgrading-ONLYOFFICE-Community-Server"><a href="#Upgrading-ONLYOFFICE-Community-Server" class="headerlink" title="Upgrading ONLYOFFICE Community Server"></a>Upgrading ONLYOFFICE Community Server</h2><p>To upgrade to a newer release, please follow there easy steps:</p>
+<p><strong>STEP 1</strong>: Make sure that all the container volumes are mounted following the <strong>Storing Data</strong> section instructions:</p>
+<pre><code>sudo docker inspect --format=&apos;{{range $p,$conf:=.HostConfig.Binds}}{{$conf}};{{end}}&apos; {{COMMUNITY_SERVER_ID}} 
+</code></pre><p>where<br>     stands for a container name or ID</p>
+<p><strong>STEP 2</strong> Remove the current container<br>    sudo docker rm -f </p>
+<p><strong>STEP 3</strong> Remove the current image<br>    sudo docker rmi -f $(sudo docker images | grep onlyoffice/communityserver | awk ‘{ print $3 }’)</p>
+<p><strong>STEP 4</strong> Run the new image with the same map paths</p>
+<pre><code>sudo docker run -i -t -d -p 80:80 \
+-v /app/onlyoffice/CommunityServer/logs:/var/log/onlyoffice  \
+-v /app/onlyoffice/CommunityServer/data:/var/www/onlyoffice/Data  \
+-v /app/onlyoffice/CommunityServer/mysql:/var/lib/mysql  onlyoffice/communityserver
+</code></pre><h2 id="Project-Information"><a href="#Project-Information" class="headerlink" title="Project Information"></a>Project Information</h2><p>Official website: <a href="http://onlyoffice.org" title="http://www.onlyoffice.org" target="_blank" rel="external">http://www.onlyoffice.org</a></p>
+<p>Code repository: <a href="https://github.com/ONLYOFFICE/CommunityServer" title="https://github.com/ONLYOFFICE/CommunityServer" target="_blank" rel="external">https://github.com/ONLYOFFICE/CommunityServer</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/201608undefinedONLYOFFICE-协同办公/">ONLYOFFICE 协同办公</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Smile921</a></p>
+        <p><span>发布时间:</span>2016-08-11, 11:28:16</p>
+        <p><span>最后更新:</span>2017-03-09, 17:18:38</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/201608undefinedONLYOFFICE-协同办公/" title="ONLYOFFICE 协同办公">http://smile921.github.io/201608undefinedONLYOFFICE-协同办公/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://smile921.github.io/201608undefinedONLYOFFICE-协同办公/　　作者: Smile921" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/201608undefinedNodeBB-基于-nodejs实现的社区论坛/">
+                    NodeBB 基于 nodejs实现的社区论坛
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/201608undefineddocker-hub-国内加速/">
+                    docker hub 国内加速
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#onlyOffice"><span class="toc-number">1.</span> <span class="toc-text">onlyOffice</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Collaborative-system-for-managing-documents-projects-customer-relations-and-emails-in-one-place"><span class="toc-number">1.1.</span> <span class="toc-text">Collaborative system for managing documents, projects, customer relations and emails in one place</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Running-Docker-Image"><span class="toc-number">2.</span> <span class="toc-text">Running Docker Image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuring-Docker-Image"><span class="toc-number">3.</span> <span class="toc-text">Configuring Docker Image</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Storing-Data"><span class="toc-number">3.1.</span> <span class="toc-text">Storing Data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-MySQL"><span class="toc-number">3.2.</span> <span class="toc-text">Using MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Running-ONLYOFFICE-Community-Server-on-Different-Port"><span class="toc-number">3.3.</span> <span class="toc-text">Running ONLYOFFICE Community Server on Different Port</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exposing-Additional-Ports"><span class="toc-number">3.4.</span> <span class="toc-text">Exposing Additional Ports</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Running-ONLYOFFICE-Community-Server-using-HTTPS"><span class="toc-number">3.5.</span> <span class="toc-text">Running ONLYOFFICE Community Server using HTTPS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Generation-of-Self-Signed-Certificates"><span class="toc-number">3.5.1.</span> <span class="toc-text">Generation of Self Signed Certificates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Strengthening-the-server-security"><span class="toc-number">3.5.2.</span> <span class="toc-text">Strengthening the server security</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Installation-of-the-SSL-Certificates"><span class="toc-number">3.5.3.</span> <span class="toc-text">Installation of the SSL Certificates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Available-Configuration-Parameters"><span class="toc-number">3.5.4.</span> <span class="toc-text">Available Configuration Parameters</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installing-ONLYOFFICE-Community-Server-integrated-with-Document-and-Mail-Servers"><span class="toc-number">4.</span> <span class="toc-text">Installing ONLYOFFICE Community Server integrated with Document and Mail Servers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Upgrading-ONLYOFFICE-Community-Server"><span class="toc-number">5.</span> <span class="toc-text">Upgrading ONLYOFFICE Community Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Project-Information"><span class="toc-number">6.</span> <span class="toc-text">Project Information</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/201608undefinedNodeBB-基于-nodejs实现的社区论坛/" title="上一篇: NodeBB 基于 nodejs实现的社区论坛">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/201608undefineddocker-hub-国内加速/" title="下一篇: docker hub 国内加速">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/201703undefinedmongodb 实战笔记/">mongodb 3.4.x 入门笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201611undefinedspaceemacs-学习笔记/">spaceemacs 学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201610undefinedWhy-is-char-preferred-over-String-for-passwords-in-Java/">Why is char[] preferred over String for passwords in Java?</a></li><li class="post-list-item"><a class="post-list-link" href="/201609undefinedChromium-命令行启动参数/">Chromium 命令行启动参数 </a></li><li class="post-list-item"><a class="post-list-link" href="/201609undefined目前比较流行的Python科学计算发行版/">目前比较流行的Python科学计算发行版</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedmysql-root密码重置/">mysql  root密码重置</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/">electron Build cross platform desktop apps with JavaScript, HTML, and CSS</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/">KaTeX The fastest math typesetting library for the web</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedoracle-存储过程解题示例一/">oracle 存储过程解题示例一</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedAndroid-开发最佳实践/">Android 开发最佳实践</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedjava-jpda-远程调试/">java jpda 远程调试</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefined动手安装-Haskell-koans-笔记/">动手安装 Haskell koans 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedawesome-koans/">awesome koans</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedBT种子嗅探器原理/">BT种子嗅探器原理</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedNodeBB-基于-nodejs实现的社区论坛/">NodeBB 基于 nodejs实现的社区论坛</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedONLYOFFICE-协同办公/">ONLYOFFICE 协同办公</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefineddocker-hub-国内加速/">docker hub 国内加速</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedTelegram-一款开源简洁的IM/">Telegram  一款开源简洁的IM</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedAPI-Documentation-Browser/">API Documentation Browser</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinednginx-lua-waf/">nginx lua waf</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedgitlab-实战笔记/">gitlab 实战笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedRAT（远程访问木马）名为SpyNote——这是个可对Android系统实现远程监听的工具/">RAT（远程访问木马）名为 SpyNote ——这是个可对 Android 系统实现远程监听的工具</a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedsecurity-list/">security list </a></li><li class="post-list-item"><a class="post-list-link" href="/201608undefinedhaskell-资料收集/">haskell 资料收集</a></li><li class="post-list-item"><a class="post-list-link" href="/201607undefinedhexo-for-fun/">hexo-for-fun</a></li><li class="post-list-item"><a class="post-list-link" href="/201607undefinedhello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Smile921
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a>  <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
