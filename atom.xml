@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>关注网络安全动态，追求心中的向往</title>
   <subtitle>迈入新世界，培养独当一面的 Web 前端工程师！</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="/hoblog/atom.xml" rel="self"/>
   
   <link href="http://smile921.github.io/"/>
-  <updated>2017-03-09T09:18:38.029Z</updated>
+  <updated>2017-03-13T08:00:08.407Z</updated>
   <id>http://smile921.github.io/</id>
   
   <author>
@@ -16,11 +16,72 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>基于以太坊的智能合约开发入门</title>
+    <link href="http://smile921.github.io/201703undefined%E5%9F%BA%E4%BA%8E%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%9A%84%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/"/>
+    <id>http://smile921.github.io/201703undefined基于以太坊的智能合约开发入门/</id>
+    <published>2017-03-13T08:49:23.000Z</published>
+    <updated>2017-03-13T08:00:08.407Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基于以太坊的智能合约开发入门"><a href="#基于以太坊的智能合约开发入门" class="headerlink" title="基于以太坊的智能合约开发入门"></a>基于以太坊的智能合约开发入门</h1><h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><p> 现在我选择这里 Ubuntu 16.10 LTS 版本</p>
+<ul>
+<li>安装nodejs 环境 (通过apt-get 安装的默认是nodejs 4.2.6) 建议安装官网较新的版本</li>
+<li><p>接着修改registry地址 为淘宝镜像或者其他国内镜像可以加速包安装过程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm config set registry https://registry.npm.taobao.org </div><div class="line">npm info underscore （如果上面配置正确这个命令会有字符串response）</div></pre></td></tr></table></figure>
+</li>
+<li><p>可选安装yarn 一个号称能比npm更快的包管理工具 ( npm install -g yarn )</p>
+</li>
+<li>如果不是安装的最新的nodejs 可以用下面的方法升级( npm install -g n &amp;&amp; n stable )</li>
+<li>接下来安装 truffle ( npm install -g truffle 或者使用yarn 安装 yarn global add truffle  )</li>
+<li>安装 testrpc 或者 geth ( 开发测试可以直接安装 testrpc  npm install -g testrpc ; yarn global add testrpc )</li>
+<li>安装 solc 用web3js 可以生成 abi文件和bin文件 ( npm install -g solc ; yarn global add solc )</li>
+<li><p>下载安装web3j wapper tool <a href="https://github.com/web3j/web3j/releases/download/v2.1.0/web3j-2.1.0.zip" target="_blank" rel="external">web3j tool</a><br>解压即可使用 bin/web3j solidity generate … …</p>
+<p>npm 和yarn命令转换cheat sheet<br><img src="images/blockchain-00.jpg" alt="image"></p>
+</li>
+</ul>
+<h2 id="使用truffle-初始化项目，并编写智能合约，生成智能合约abi文件和bin文件等"><a href="#使用truffle-初始化项目，并编写智能合约，生成智能合约abi文件和bin文件等" class="headerlink" title="使用truffle 初始化项目，并编写智能合约，生成智能合约abi文件和bin文件等"></a>使用truffle 初始化项目，并编写智能合约，生成智能合约abi文件和bin文件等</h2><ul>
+<li><p>初始化项目 truffle-demo ( mkdir truffle-demo &amp;&amp; cd truffle &amp;&amp; truffle init )</p>
+<p><img src="images/blockchain-01.png" alt="image"><br><img src="images/blockchain-02.png" alt="image"></p>
+</li>
+<li>编写智能合约，并编译  ( truffle compile )<br><img src="images/blockchain-02.png" alt="image"><br><img src="images/blockchain-05.png" alt="image"></li>
+<li>启动区块链测试环境 testrpc<br><img src="images/blockchain-04.jpg" alt="image"></li>
+<li><p>修改配置文件 truffle.js 的host为127.0.0.1或者localhost ，端口按testrpc提示修改</p>
+</li>
+<li><p>修改migration目录下的migrate 文件 执行 ( truffle migrate )<br><img src="images/blockchain-06.png" alt="image"><br><img src="images/blockchain-07.png" alt="image"><br><img src="images/blockchain-08.png" alt="image"></p>
+</li>
+<li>truffle console 进入控制台进行简单验证<br><img src="images/blockchain-13.png" alt="image"></li>
+<li><p>truffle build 编译</p>
+</li>
+<li><p>truffle publish 发布</p>
+</li>
+<li><p>truffle networks 发布<br><img src="images/blockchain-09.png" alt="image"></p>
+</li>
+<li>导出abi文件和bin文件 ( solcjs contracts/ConvertLib.sol –abi –bin –optimize -o build/ –verbose  )<br><img src="images/blockchain-12.png" alt="image"><br><img src="images/blockchain-10.png" alt="image"></li>
+<li>导出abi文件和bin文件 ( web3j solidity generate xxx.abi xxx.bin -p com.xxx.smart.contracs -o outputdir )</li>
+</ul>
+<p><img src="images/blockchain-11.png" alt="image"></p>
+<h2 id="TODO-TBD"><a href="#TODO-TBD" class="headerlink" title="TODO TBD"></a>TODO TBD</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;基于以太坊的智能合约开发入门&quot;&gt;&lt;a href=&quot;#基于以太坊的智能合约开发入门&quot; class=&quot;headerlink&quot; title=&quot;基于以太坊的智能合约开发入门&quot;&gt;&lt;/a&gt;基于以太坊的智能合约开发入门&lt;/h1&gt;&lt;h2 id=&quot;环境安装&quot;&gt;&lt;a href=&quot;#环
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="http://smile921.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="truffle" scheme="http://smile921.github.io/tags/truffle/"/>
+    
+      <category term="web3j" scheme="http://smile921.github.io/tags/web3j/"/>
+    
+  </entry>
+  
+  <entry>
     <title>mongodb 3.4.x 入门笔记</title>
     <link href="http://smile921.github.io/201703undefinedmongodb%20%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/"/>
     <id>http://smile921.github.io/201703undefinedmongodb 实战笔记/</id>
     <published>2017-03-09T08:49:23.000Z</published>
-    <updated>2017-03-09T09:18:38.029Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p> 现在我选择这里 <a href="https://www.mongodb.com/download-center/enterprise/releases" target="_blank" rel="external">https://www.mongodb.com/download-center/enterprise/releases</a> </p>
 <h3 id="linux-更简单快捷的方式-centos-或者-redhat"><a href="#linux-更简单快捷的方式-centos-或者-redhat" class="headerlink" title="linux 更简单快捷的方式 centos 或者 redhat"></a>linux 更简单快捷的方式 centos 或者 redhat</h3><p>   <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-red-hat/" target="_blank" rel="external">参考这里</a></p>
@@ -54,7 +115,7 @@
     <link href="http://smile921.github.io/201611undefinedspaceemacs-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://smile921.github.io/201611undefinedspaceemacs-学习笔记/</id>
     <published>2016-11-01T05:45:31.000Z</published>
-    <updated>2017-03-09T09:18:38.033Z</updated>
+    <updated>2017-03-13T05:49:30.797Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li><p>gg moves to the beginning of the buffer.<br>G  moves to the end of the buffer.<br>:  followed by a line number the <enter> moves to that line number .</enter></p>
@@ -93,7 +154,7 @@
     <link href="http://smile921.github.io/201610undefinedWhy-is-char-preferred-over-String-for-passwords-in-Java/"/>
     <id>http://smile921.github.io/201610undefinedWhy-is-char-preferred-over-String-for-passwords-in-Java/</id>
     <published>2016-10-09T01:05:18.000Z</published>
-    <updated>2017-03-09T09:18:38.033Z</updated>
+    <updated>2017-03-13T05:49:30.797Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Why-is-char-preferred-over-String-for-passwords-in-Java"><a href="#Why-is-char-preferred-over-String-for-passwords-in-Java" class="headerlink" title="Why is char[] preferred over String for passwords in Java?"></a>Why is char[] preferred over String for passwords in Java?</h2><p> <a href="http://stackoverflow.com/questions/8881291/why-is-char-preferred-over-string-for-passwords-in-java?rq=1" target="_blank" rel="external">来自 stackoverflow 的一个热门讨论</a><br> In Swing, the password field has a getPassword() (returns char[]) method instead of the usual getText() (returns String) method. Similarly, I have come across a suggestion not to use String to handle passwords.</p>
 <p>Why does String pose a threat to security when it comes to passwords? It feels inconvenient to use char[]</p>
@@ -138,7 +199,7 @@
     <link href="http://smile921.github.io/201609undefinedChromium-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0/"/>
     <id>http://smile921.github.io/201609undefinedChromium-命令行启动参数/</id>
     <published>2016-09-18T07:33:17.000Z</published>
-    <updated>2017-03-09T09:18:38.032Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Chromium命令行启动参数"><a href="#Chromium命令行启动参数" class="headerlink" title="Chromium命令行启动参数"></a>Chromium命令行启动参数</h2><p>说明<br>常用命令行启动参数列表<br>如何使用这些参数<br>说明</p>
 <p>这个页面列出了一些常用的命令行启动参数以及对它们的简要说明。说明中括号里的内容为译者注。</p>
@@ -170,7 +231,7 @@
     <link href="http://smile921.github.io/201609undefined%E7%9B%AE%E5%89%8D%E6%AF%94%E8%BE%83%E6%B5%81%E8%A1%8C%E7%9A%84Python%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%8F%91%E8%A1%8C%E7%89%88/"/>
     <id>http://smile921.github.io/201609undefined目前比较流行的Python科学计算发行版/</id>
     <published>2016-09-18T04:27:50.000Z</published>
-    <updated>2017-03-09T09:18:38.032Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><pre><code>[Anaconda ](https://www.continuum.io/downloads)
 这个是新起之秀，就今年已更新多次了，目前的版本是2.3.0。包管理使用conda，GUI基于PySide，
@@ -228,7 +289,7 @@ Studio可以相提并论!现在的版本是2.7.10.稳定性已有相当的改善
     <link href="http://smile921.github.io/201608undefinedmysql-root%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE/"/>
     <id>http://smile921.github.io/201608undefinedmysql-root密码重置/</id>
     <published>2016-08-30T00:36:57.000Z</published>
-    <updated>2017-03-09T09:18:38.032Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<p> 新装的mysql 或者用过一段时间的测试机mysql数据库忘了密码，又不想重装。想来应该有办法可以重置密码。<br> 首先想到mysqladmin 但是尝试在后无果，还是需要密码。经过一番查找尝试还是有高人，废话不多说了，光说不练假把式。看我如何操作</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/mysql stop</div><div class="line">mysqld_safe --user=mysql --skip-grant-tables --skip-networking &amp;</div><div class="line">mysql -u root mysql</div><div class="line">update user  set password=password(&apos;mysqlroot@&apos;) where user=&apos;root&apos;;</div><div class="line">FLUSH PRIVILEGES;</div><div class="line">/etc/init.d/mysql restart</div><div class="line">mysql -uroot -p</div><div class="line">输入先设置的密码 ok</div></pre></td></tr></table></figure>
@@ -252,7 +313,7 @@ Studio可以相提并论!现在的版本是2.7.10.稳定性已有相当的改善
     <link href="http://smile921.github.io/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/"/>
     <id>http://smile921.github.io/201608undefinedelectron-Build-cross-platform-desktop-apps-with-JavaScript-HTML-and-CSS/</id>
     <published>2016-08-23T03:18:31.000Z</published>
-    <updated>2017-03-09T09:18:38.031Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<h1 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h1><p>Electron 可以让你使用纯 JavaScript 调用丰富的原生 APIs 来创造桌面应用。你可以把它看作一个专注于桌面应用的 Node.js 的变体，而不是 Web 服务器。</p>
 <p>这不意味着 Electron 是绑定了 GUI 库的 JavaScript。相反，Electron 使用 web 页面作为它的 GUI，所以你能把它看作成一个被 JavaScript 控制的，精简版的 Chromium 浏览器。</p>
@@ -300,7 +361,7 @@ Studio可以相提并论!现在的版本是2.7.10.稳定性已有相当的改善
     <link href="http://smile921.github.io/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/"/>
     <id>http://smile921.github.io/201608undefinedKaTeX-The-fastest-math-typesetting-library-for-the-web/</id>
     <published>2016-08-23T01:22:59.000Z</published>
-    <updated>2017-03-09T09:18:38.031Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<h1 id="KaTeX-简介"><a href="#KaTeX-简介" class="headerlink" title="KaTeX 简介"></a>KaTeX 简介</h1><h2 id="examples"><a href="#examples" class="headerlink" title="examples"></a>examples</h2><p><a href="../katex/index.html">demo</a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"examples"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"example tex"</span> <span class="attr">data-expr</span>=<span class="string">"\displaystyle \frac&#123;1&#125;&#123;\Bigl(\sqrt&#123;\phi \sqrt&#123;5&#125;&#125;-\phi\Bigr) e^&#123;\frac25 \pi&#125;&#125; = 1+\frac&#123;e^&#123;-2\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-4\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-6\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-8\pi&#125;&#125; &#123;1+\cdots&#125; &#125; &#125; &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"example tex"</span> <span class="attr">data-expr</span>=<span class="string">"\displaystyle \left( \sum_&#123;k=1&#125;^n a_k b_k \right)^2 \leq \left( \sum_&#123;k=1&#125;^n a_k^2 \right) \left( \sum_&#123;k=1&#125;^n b_k^2 \right)"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"example tex"</span> <span class="attr">data-expr</span>=<span class="string">"\displaystyle 1 +  \frac&#123;q^2&#125;&#123;(1-q)&#125;+\frac&#123;q^6&#125;&#123;(1-q)(1-q^2)&#125;+\cdots = \prod_&#123;j=0&#125;^&#123;\infty&#125;\frac&#123;1&#125;&#123;(1-q^&#123;5j+2&#125;)(1-q^&#123;5j+3&#125;)&#125;, \quad\quad \text&#123;for &#125;\lvert q\rvert&lt;1."</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <h2 id="Simple-API-no-dependencies-–-yet-super-fast-on-all-major-browsers"><a href="#Simple-API-no-dependencies-–-yet-super-fast-on-all-major-browsers" class="headerlink" title="Simple API, no dependencies – yet super-fast on all major browsers."></a>Simple API, no dependencies – yet super-fast on all major browsers.</h2><p><a href="https://khan.github.io/KaTeX/" target="_blank" rel="external">Fast math typesetting for the web.</a></p>
@@ -354,7 +415,7 @@ Studio可以相提并论!现在的版本是2.7.10.稳定性已有相当的改善
     <link href="http://smile921.github.io/201608undefinedoracle-%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E8%A7%A3%E9%A2%98%E7%A4%BA%E4%BE%8B%E4%B8%80/"/>
     <id>http://smile921.github.io/201608undefinedoracle-存储过程解题示例一/</id>
     <published>2016-08-22T08:09:16.000Z</published>
-    <updated>2017-03-09T09:18:38.031Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<h2 id="问题概述"><a href="#问题概述" class="headerlink" title="问题概述"></a>问题概述</h2><p> 某一个报表数据来自一个复杂业务的查询，其中某类资产的数据需要按百分比展示。同时这类资产的百分比总和加起来应该是100% 。问题比如这个分类是2,2,2 百分比是0.33,0.33,0.33 最终给出的结果是需要修正的即走后一条数据应该修正为0.34；同理的 如果是 1,2,3,1 的百分比计算也需要修正最后一条数据。当时的业务场景下只能用存储过程</p>
 <h2 id="问题简化解析"><a href="#问题简化解析" class="headerlink" title="问题简化解析"></a>问题简化解析</h2><p> 首先加一些简单的测试数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">-- Create table</div><div class="line">create table OOTEST</div><div class="line">(</div><div class="line">  id     NVARCHAR2(16),</div><div class="line">  types  NVARCHAR2(16),</div><div class="line">  shares NUMBER</div><div class="line">)</div><div class="line">insert into ootest (ID, TYPES, SHARES)</div><div class="line">values (&apos;1&apos;, &apos;aa&apos;, 1);</div><div class="line"></div><div class="line">insert into ootest (ID, TYPES, SHARES)</div><div class="line">values (&apos;2&apos;, &apos;aa&apos;, 1);</div><div class="line"></div><div class="line">insert into ootest (ID, TYPES, SHARES)</div><div class="line">values (&apos;3&apos;, &apos;aa&apos;, 1);</div><div class="line"></div><div class="line">insert into ootest (ID, TYPES, SHARES)</div><div class="line">values (&apos;4&apos;, &apos;bb&apos;, 1);</div><div class="line"></div><div class="line">insert into ootest (ID, TYPES, SHARES)</div><div class="line">values (&apos;5&apos;, &apos;bb&apos;, 2);</div><div class="line"> select t.id,t.types,t.shares, rowid from ootest t ;</div></pre></td></tr></table></figure></p>
@@ -399,7 +460,7 @@ Studio可以相提并论!现在的版本是2.7.10.稳定性已有相当的改善
     <link href="http://smile921.github.io/201608undefinedAndroid-%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
     <id>http://smile921.github.io/201608undefinedAndroid-开发最佳实践/</id>
     <published>2016-08-18T01:00:39.000Z</published>
-    <updated>2017-03-09T09:18:38.030Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h4 id="使用-Gradle-和他推荐的工程结构"><a href="#使用-Gradle-和他推荐的工程结构" class="headerlink" title="使用 Gradle 和他推荐的工程结构"></a>使用 Gradle 和他推荐的工程结构</h4><h4 id="把密码和敏感数据放在-gradle-properties-配置文件中"><a href="#把密码和敏感数据放在-gradle-properties-配置文件中" class="headerlink" title="把密码和敏感数据放在 gradle.properties 配置文件中"></a>把密码和敏感数据放在 gradle.properties 配置文件中</h4><h4 id="使用-Jackson-库解析-JSON-数据"><a href="#使用-Jackson-库解析-JSON-数据" class="headerlink" title="使用 Jackson 库解析 JSON 数据"></a>使用 Jackson 库解析 JSON 数据</h4><h4 id="不要自己实现-Http-client-使用-Volley-库或者-OkHttp-库"><a href="#不要自己实现-Http-client-使用-Volley-库或者-OkHttp-库" class="headerlink" title="不要自己实现 Http client 使用 Volley 库或者 OkHttp 库"></a>不要自己实现 Http client 使用 Volley 库或者 OkHttp 库</h4><h4 id="避免使用-Guava-库，由于-65k-方法限制使用其他少数库"><a href="#避免使用-Guava-库，由于-65k-方法限制使用其他少数库" class="headerlink" title="避免使用 Guava 库，由于 65k 方法限制使用其他少数库"></a>避免使用 Guava 库，由于 65k 方法限制使用其他少数库</h4><h4 id="在选择-Activities-和-Fragments-时特别小心"><a href="#在选择-Activities-和-Fragments-时特别小心" class="headerlink" title="在选择 Activities 和 Fragments 时特别小心"></a>在选择 Activities 和 Fragments 时特别小心</h4><h4 id="布局XML也是代码，请也好好组织编排"><a href="#布局XML也是代码，请也好好组织编排" class="headerlink" title="布局XML也是代码，请也好好组织编排"></a>布局XML也是代码，请也好好组织编排</h4><h4 id="使用样式避免布局的XML中有重复多余的属性"><a href="#使用样式避免布局的XML中有重复多余的属性" class="headerlink" title="使用样式避免布局的XML中有重复多余的属性"></a>使用样式避免布局的XML中有重复多余的属性</h4><h4 id="使用多个样式文件避免单个大文件样式"><a href="#使用多个样式文件避免单个大文件样式" class="headerlink" title="使用多个样式文件避免单个大文件样式"></a>使用多个样式文件避免单个大文件样式</h4><h4 id="保持你的颜色定义xml简短整洁，甚至定义一个调色板"><a href="#保持你的颜色定义xml简短整洁，甚至定义一个调色板" class="headerlink" title="保持你的颜色定义xml简短整洁，甚至定义一个调色板"></a>保持你的颜色定义xml简短整洁，甚至定义一个调色板</h4><h4 id="Do-not-make-a-deep-hierarchy-of-ViewGroups"><a href="#Do-not-make-a-deep-hierarchy-of-ViewGroups" class="headerlink" title="Do not make a deep hierarchy of ViewGroups"></a>Do not make a deep hierarchy of ViewGroups</h4><h4 id="避免客户端处理-WebViews-特别小心内存泄漏"><a href="#避免客户端处理-WebViews-特别小心内存泄漏" class="headerlink" title="避免客户端处理 WebViews 特别小心内存泄漏"></a>避免客户端处理 WebViews 特别小心内存泄漏</h4><h4 id="使用-Robolectric-做单元测试，Robotium-做UI-测试"><a href="#使用-Robolectric-做单元测试，Robotium-做UI-测试" class="headerlink" title="使用 Robolectric 做单元测试，Robotium 做UI 测试"></a>使用 Robolectric 做单元测试，Robotium 做UI 测试</h4><h4 id="使用-Genymotion-作为你的模拟器"><a href="#使用-Genymotion-作为你的模拟器" class="headerlink" title="使用 Genymotion 作为你的模拟器"></a>使用 Genymotion 作为你的模拟器</h4><h4 id="使用-ProGuard-或者-DexGuard"><a href="#使用-ProGuard-或者-DexGuard" class="headerlink" title="使用 ProGuard 或者 DexGuard"></a>使用 ProGuard 或者 DexGuard</h4><h4 id="使用-SharedPreferences-做简单的持久化，否则使用-ContentProviders"><a href="#使用-SharedPreferences-做简单的持久化，否则使用-ContentProviders" class="headerlink" title="使用 SharedPreferences 做简单的持久化，否则使用 ContentProviders"></a>使用 SharedPreferences 做简单的持久化，否则使用 ContentProviders</h4><h4 id="使用-Stetho-调试你的应用"><a href="#使用-Stetho-调试你的应用" class="headerlink" title="使用 Stetho 调试你的应用"></a>使用 Stetho 调试你的应用</h4><h2 id="Android-SDK"><a href="#Android-SDK" class="headerlink" title="Android SDK"></a>Android SDK</h2><p>把你的Android SDK 放到你的Home目录或者应用的独立目录，不要和IDE放在一起，避免某些原因IDE升级或者重装导致长时间的SDK重新下载安装。</p>
 <h2 id="编译系统"><a href="#编译系统" class="headerlink" title="编译系统"></a>编译系统</h2><p>你的默认编译工具应该是 Gradle</p>
@@ -425,7 +486,7 @@ Studio可以相提并论!现在的版本是2.7.10.稳定性已有相当的改善
     <link href="http://smile921.github.io/201608undefinedjava-jpda-%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/"/>
     <id>http://smile921.github.io/201608undefinedjava-jpda-远程调试/</id>
     <published>2016-08-17T05:30:12.000Z</published>
-    <updated>2017-03-09T09:18:38.030Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Java-Platform-Debugger-Architecture-JPDA-Java平台调试架构-由Java虚拟机后端和调试平台前端组成"><a href="#Java-Platform-Debugger-Architecture-JPDA-Java平台调试架构-由Java虚拟机后端和调试平台前端组成" class="headerlink" title="Java Platform Debugger Architecture(JPDA:Java平台调试架构) 由Java虚拟机后端和调试平台前端组成"></a>Java Platform Debugger Architecture(JPDA:Java平台调试架构) 由Java虚拟机后端和调试平台前端组成</h2><h2 id="对-执行java-或者java-jar-进行远程调试"><a href="#对-执行java-或者java-jar-进行远程调试" class="headerlink" title="对 执行java 或者java -jar 进行远程调试"></a>对 执行java 或者java -jar 进行远程调试</h2><h3 id="添加-agentlib-jdwp-transport-dt-socket-address-9000-server-y-suspend-n-即可"><a href="#添加-agentlib-jdwp-transport-dt-socket-address-9000-server-y-suspend-n-即可" class="headerlink" title="添加 -agentlib:jdwp=transport=dt_socket,address=9000,server=y,suspend=n  即可"></a>添加 -agentlib:jdwp=transport=dt_socket,address=9000,server=y,suspend=n  即可</h3><ul>
 <li>注意一 transport=dt_socket 不可随意更改</li>
@@ -495,7 +556,7 @@ JPDA_SUSPEND    (Optional) Java runtime options used when the &quot;jpda start&q
     <link href="http://smile921.github.io/201608undefined%E5%8A%A8%E6%89%8B%E5%AE%89%E8%A3%85-Haskell-koans-%E7%AC%94%E8%AE%B0/"/>
     <id>http://smile921.github.io/201608undefined动手安装-Haskell-koans-笔记/</id>
     <published>2016-08-15T07:24:30.000Z</published>
-    <updated>2017-03-09T09:18:38.030Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<h2 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h2><h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cabal update</div><div class="line">cabal build Setup.hs -v</div></pre></td></tr></table></figure>
 <h3 id="报错了"><a href="#报错了" class="headerlink" title="报错了"></a>报错了</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Package has never been configured. Configuring with default flags. If this</div><div class="line">fails, please run configure manually.</div><div class="line">/usr/local/bin/ghc --numeric-version</div><div class="line">looking for tool ghc-pkg near compiler in /usr/local/bin</div><div class="line">found ghc-pkg in /usr/local/bin/ghc-pkg</div><div class="line">/usr/local/bin/ghc-pkg --version</div><div class="line">/usr/local/bin/ghc --supported-languages</div><div class="line">/usr/local/bin/ghc --info</div><div class="line">Reading available packages...</div><div class="line">Choosing modular solver.</div><div class="line">Resolving dependencies...</div><div class="line">Could not resolve dependencies:</div><div class="line">trying: HaskellKoans-0.1 (user goal)</div><div class="line">next goal: testloop (dependency of HaskellKoans-0.1)</div><div class="line">Dependency tree exhaustively searched.</div><div class="line">Configuring HaskellKoans-0.1...</div><div class="line">cabal: At least the following dependencies are missing:</div><div class="line">HUnit -any,</div><div class="line">attoparsec -any,</div><div class="line">hspec -any,</div><div class="line">mtl -any,</div><div class="line">testloop -any,</div><div class="line">text -any</div></pre></td></tr></table></figure>
@@ -559,9 +620,9 @@ ExitFailure 1
     </summary>
     
     
-      <category term="haskell" scheme="http://smile921.github.io/tags/haskell/"/>
-    
       <category term="koan" scheme="http://smile921.github.io/tags/koan/"/>
+    
+      <category term="haskell" scheme="http://smile921.github.io/tags/haskell/"/>
     
   </entry>
   
@@ -570,7 +631,7 @@ ExitFailure 1
     <link href="http://smile921.github.io/201608undefinedawesome-koans/"/>
     <id>http://smile921.github.io/201608undefinedawesome-koans/</id>
     <published>2016-08-12T07:56:23.000Z</published>
-    <updated>2017-03-09T09:18:38.029Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<h1 id="awesome-koans"><a href="#awesome-koans" class="headerlink" title="awesome-koans"></a>awesome-koans</h1><h3 id="What-is-Koan"><a href="#What-is-Koan" class="headerlink" title="What is Kōan"></a>What is <a href="https://en.wikipedia.org/wiki/K%C5%8Dan#Sources" target="_blank" rel="external">Kōan</a></h3><p>Koan（公案）是佛教禅宗的术语，乃是佛教禅宗祖师的一段言行或者一个小故事，用于引导和开悟。</p>
 <p>编程语言的学习也有一种公案形式的学习方法，是我见过的最好的学习一门新的编程语言的方式。以<a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank" rel="external">TDD</a>的形式，预先编写好每一个知识点的测试代码，引导学习者使用相关的知识编写代码以通过测试。这种像闯关一样的形式让人充满的学习的动力，也解决了很多人学习过程中只有纸上谈兵而没有动手机会的问题。</p>
@@ -625,7 +686,7 @@ ExitFailure 1
     <link href="http://smile921.github.io/201608undefinedBT%E7%A7%8D%E5%AD%90%E5%97%85%E6%8E%A2%E5%99%A8%E5%8E%9F%E7%90%86/"/>
     <id>http://smile921.github.io/201608undefinedBT种子嗅探器原理/</id>
     <published>2016-08-12T05:00:30.000Z</published>
-    <updated>2017-03-09T09:18:38.029Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前看到 lantern 这个十分火的翻墙工具，其利用了P2P的思想，就想了解一下P2P相关的协议。看了下最流行的BT协议官方文档，就产生了实现BT协议的想法，顺便根据协议实现了一个BT种子嗅探器。</p>
 <p>也有人将BT种子嗅探器称为BT种子爬虫，个人觉得其行为特性和传统的web爬虫相差较大，反而和嗅探器很类似，因此暂且称之为BT种子嗅探器吧。</p>
@@ -697,7 +758,7 @@ ExitFailure 1
     <link href="http://smile921.github.io/201608undefinedNodeBB-%E5%9F%BA%E4%BA%8E-nodejs%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%A4%BE%E5%8C%BA%E8%AE%BA%E5%9D%9B/"/>
     <id>http://smile921.github.io/201608undefinedNodeBB-基于-nodejs实现的社区论坛/</id>
     <published>2016-08-12T04:39:00.000Z</published>
-    <updated>2017-03-09T09:18:38.029Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Node-js-based-forum-software-built-for-the-modern-web-http-www-nodebb-org"><a href="#Node-js-based-forum-software-built-for-the-modern-web-http-www-nodebb-org" class="headerlink" title="Node.js based forum software built for the modern web http://www.nodebb.org"></a>Node.js based forum software built for the modern web <a href="http://www.nodebb.org" target="_blank" rel="external">http://www.nodebb.org</a></h2><p><a href="https://nodebb.org" target="_blank" rel="external"><strong>NodeBB Forum Software</strong></a> is powered by Node.js and built on either a Redis or MongoDB database. It utilizes web sockets for instant interactions and real-time notifications. NodeBB has many modern features out of the box such as social network integration and streaming discussions, while still making sure to be compatible with older browsers.</p>
 <p>Additional functionality is enabled through the use of third-party plugins.</p>
@@ -733,7 +794,7 @@ ExitFailure 1
     <link href="http://smile921.github.io/201608undefinedONLYOFFICE-%E5%8D%8F%E5%90%8C%E5%8A%9E%E5%85%AC/"/>
     <id>http://smile921.github.io/201608undefinedONLYOFFICE-协同办公/</id>
     <published>2016-08-11T03:28:16.000Z</published>
-    <updated>2017-03-09T09:18:38.028Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<h2 id="onlyOffice"><a href="#onlyOffice" class="headerlink" title="onlyOffice"></a>onlyOffice</h2><h3 id="Collaborative-system-for-managing-documents-projects-customer-relations-and-emails-in-one-place"><a href="#Collaborative-system-for-managing-documents-projects-customer-relations-and-emails-in-one-place" class="headerlink" title="Collaborative system for managing documents, projects, customer relations and emails in one place"></a>Collaborative system for managing documents, projects, customer relations and emails in one place</h3><ul>
 <li>在线编辑文档</li>
@@ -903,7 +964,7 @@ ExitFailure 1
     <link href="http://smile921.github.io/201608undefineddocker-hub-%E5%9B%BD%E5%86%85%E5%8A%A0%E9%80%9F/"/>
     <id>http://smile921.github.io/201608undefineddocker-hub-国内加速/</id>
     <published>2016-08-10T07:40:01.000Z</published>
-    <updated>2017-03-09T09:18:38.028Z</updated>
+    <updated>2017-03-13T05:49:30.782Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://www.daocloud.io/mirror" target="_blank" rel="external">DaoCloud 加速器</a>是广受欢迎的 Docker 工具，解决了国内用户访问 Docker Hub 缓慢的问题。DaoCloud 加速器结合国内的 CDN 服务与协议层优化，成倍的提升了下载速度。</p>
 <h1 id="配置加速器"><a href="#配置加速器" class="headerlink" title="配置加速器"></a>配置加速器</h1><p>请先确定您的 Docker 版本在 1.8 及以上。<br>登陆<a href="https://www.daocloud.io/mirror#accelerator-doc" target="_blank" rel="external">加速器页面</a>可以获取 mirror 地址。<br>配置好后，您可以像往常一样使用docker pull命令，在拉取 Docker Hub 镜像时会自动采用加速器的镜像服务。</p>
@@ -933,7 +994,7 @@ ExitFailure 1
     <link href="http://smile921.github.io/201608undefinedTelegram-%E4%B8%80%E6%AC%BE%E5%BC%80%E6%BA%90%E7%AE%80%E6%B4%81%E7%9A%84IM/"/>
     <id>http://smile921.github.io/201608undefinedTelegram-一款开源简洁的IM/</id>
     <published>2016-08-09T01:18:37.000Z</published>
-    <updated>2017-03-09T09:18:38.028Z</updated>
+    <updated>2017-03-13T05:49:30.766Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Telegram-的诞生"><a href="#Telegram-的诞生" class="headerlink" title="Telegram 的诞生"></a>Telegram 的诞生</h2><p>Telegram 是俄罗斯兄弟帕维尔·杜罗夫(Pavel Durov)与尼古拉·杜罗夫(Nikolai Durov)于2013年创建的，他们也是俄罗斯最大社交网站VKontakte的创始人。当VKontakte引发俄罗斯政府关注后，帕维尔逃离俄罗斯。当他与正与圣彼得堡家中与特警队对峙的兄弟尼古拉通话时，他想到了创建Telegram的主意。他说 ：“我意识到，我没有与兄弟通信的安全方式，这就是Telegram诞生的初衷。</p>
 <h2 id="可能是最注重隐私的通讯应用"><a href="#可能是最注重隐私的通讯应用" class="headerlink" title="可能是最注重隐私的通讯应用"></a>可能是最注重隐私的通讯应用</h2><p>都说在互联网上的东西就枉谈隐私了，大多数人对信息安全的概念是很弱的。Telegram 官方明确表示自己的态度：大型互联网公司总是想方设法让公众相信一种观点，保护隐私就是隐藏自己的线上信息不让身边的人知道，而实际上与此同时将大量的用户个人数据以某种形式变卖。而 Telegram 要做的是切实避免这样的情况，技术上的细则可以在网页上看到相关详尽的解说。</p>
@@ -959,7 +1020,7 @@ ExitFailure 1
     <link href="http://smile921.github.io/201608undefinedAPI-Documentation-Browser/"/>
     <id>http://smile921.github.io/201608undefinedAPI-Documentation-Browser/</id>
     <published>2016-08-08T01:06:41.000Z</published>
-    <updated>2017-03-09T09:18:38.027Z</updated>
+    <updated>2017-03-13T05:49:30.766Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://devdocs.io" target="_blank" rel="external">DevDocs</a><br><a href="https://github.com/Thibaut/devdocs" target="_blank" rel="external">DevDocs github</a></p>
 <h2 id="run-devdocs-in-docker"><a href="#run-devdocs-in-docker" class="headerlink" title="run devdocs in docker"></a>run devdocs in docker</h2><h3 id="First-build-the-image"><a href="#First-build-the-image" class="headerlink" title="First, build the image"></a>First, build the image</h3><pre><code>git clone https://github.com/Thibaut/devdocs.git &amp;&amp; cd devdocs 
@@ -1061,108 +1122,6 @@ $ ruby -rubygems hi.rb
       <category term="devdoc" scheme="http://smile921.github.io/tags/devdoc/"/>
     
       <category term="ruby" scheme="http://smile921.github.io/tags/ruby/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx lua waf</title>
-    <link href="http://smile921.github.io/201608undefinednginx-lua-waf/"/>
-    <id>http://smile921.github.io/201608undefinednginx-lua-waf/</id>
-    <published>2016-08-08T00:50:49.000Z</published>
-    <updated>2017-03-09T09:18:38.027Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="ngx-lua-waf是一个基于lua-nginx-module-openresty-的web应用防火墙"><a href="#ngx-lua-waf是一个基于lua-nginx-module-openresty-的web应用防火墙" class="headerlink" title="ngx_lua_waf是一个基于lua-nginx-module(openresty)的web应用防火墙"></a><a href="https://github.com/loveshell/ngx_lua_waf" target="_blank" rel="external">ngx_lua_waf是一个基于lua-nginx-module(openresty)的web应用防火墙</a></h2><p>###用途：</p>
-<pre><code>防止sql注入，本地包含，部分溢出，fuzzing测试，xss,SSRF等web攻击
-防止svn/备份之类文件泄漏
-防止ApacheBench之类压力测试工具的攻击
-屏蔽常见的扫描黑客工具，扫描器
-屏蔽异常的网络请求
-屏蔽图片附件类目录php执行权限
-防止webshell上传
-</code></pre><p>###推荐安装:</p>
-<p>推荐使用lujit2.1做lua支持</p>
-<p>ngx_lua如果是0.9.2以上版本，建议正则过滤函数改为ngx.re.find，匹配效率会提高三倍左右。</p>
-<p>###使用说明：</p>
-<p>nginx安装路径假设为:/usr/local/nginx/conf/</p>
-<p>把ngx_lua_waf下载到conf目录下,解压命名为waf</p>
-<p>在nginx.conf的http段添加</p>
-<pre><code>lua_package_path &quot;/usr/local/nginx/conf/waf/?.lua&quot;;
-lua_shared_dict limit 10m;
-init_by_lua_file  /usr/local/nginx/conf/waf/init.lua; 
-access_by_lua_file /usr/local/nginx/conf/waf/waf.lua;
-</code></pre><p>配置config.lua里的waf规则目录(一般在waf/conf/目录下)</p>
-<pre><code>RulePath = &quot;/usr/local/nginx/conf/waf/wafconf/&quot;
-</code></pre><p>绝对路径如有变动，需对应修改</p>
-<p>然后重启nginx即可</p>
-<p>###配置文件详细说明：</p>
-<pre><code>RulePath = &quot;/usr/local/nginx/conf/waf/wafconf/&quot;
---规则存放目录
-attacklog = &quot;off&quot;
---是否开启攻击信息记录，需要配置logdir
-logdir = &quot;/usr/local/nginx/logs/hack/&quot;
---log存储目录，该目录需要用户自己新建，切需要nginx用户的可写权限
-UrlDeny=&quot;on&quot;
---是否拦截url访问
-Redirect=&quot;on&quot;
---是否拦截后重定向
-CookieMatch = &quot;on&quot;
---是否拦截cookie攻击
-postMatch = &quot;on&quot; 
---是否拦截post攻击
-whiteModule = &quot;on&quot; 
---是否开启URL白名单
-black_fileExt={&quot;php&quot;,&quot;jsp&quot;}
---填写不允许上传文件后缀类型
-ipWhitelist={&quot;127.0.0.1&quot;}
---ip白名单，多个ip用逗号分隔
-ipBlocklist={&quot;1.0.0.1&quot;}
---ip黑名单，多个ip用逗号分隔
-CCDeny=&quot;on&quot;
---是否开启拦截cc攻击(需要nginx.conf的http段增加lua_shared_dict limit 10m;)
-CCrate = &quot;100/60&quot;
---设置cc攻击频率，单位为秒.
---默认1分钟同一个IP只能请求同一个地址100次
-html=[[Please go away~~]]
---警告内容,可在中括号内自定义
-备注:不要乱动双引号，区分大小写
-</code></pre><p>###检查规则是否生效</p>
-<p>部署完毕可以尝试如下命令：        </p>
-<pre><code>curl http://xxxx/test.php?id=../etc/passwd
-返回&quot;Please go away~~&quot;字样，说明规则生效。
-</code></pre><p>注意:默认，本机在白名单不过滤，可自行调整config.lua配置</p>
-<p>###效果图如下：</p>
-<p><img src="images/nginx-lua-waf.png" alt="sec"></p>
-<p>###规则更新：</p>
-<p>考虑到正则的缓存问题，动态规则会影响性能，所以暂没用共享内存字典和redis之类东西做动态管理。</p>
-<p>规则更新可以把规则文件放置到其他服务器，通过crontab任务定时下载来更新规则，nginx reload即可生效。以保障ngx lua waf的高性能。</p>
-<p>只记录过滤日志，不开启过滤，在代码里在check前面加上–注释即可，如果需要过滤，反之</p>
-<p>###一些说明：</p>
-<pre><code>过滤规则在wafconf下，可根据需求自行调整，每条规则需换行,或者用|分割
-
-    args里面的规则get参数进行过滤的
-    url是只在get请求url过滤的规则        
-    post是只在post请求过滤的规则        
-    whitelist是白名单，里面的url匹配到不做过滤        
-    user-agent是对user-agent的过滤规则
-
-
-默认开启了get和post过滤，需要开启cookie过滤的，编辑waf.lua取消部分--注释即可
-
-日志文件名称格式如下:虚拟主机名_sec.log
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;ngx-lua-waf是一个基于lua-nginx-module-openresty-的web应用防火墙&quot;&gt;&lt;a href=&quot;#ngx-lua-waf是一个基于lua-nginx-module-openresty-的web应用防火墙&quot; class=&quot;headerl
-    
-    </summary>
-    
-    
-      <category term="nginx" scheme="http://smile921.github.io/tags/nginx/"/>
-    
-      <category term="lua" scheme="http://smile921.github.io/tags/lua/"/>
-    
-      <category term="waf" scheme="http://smile921.github.io/tags/waf/"/>
     
   </entry>
   
