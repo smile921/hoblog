@@ -43,4 +43,4 @@ EXPOSE 4567
 
 # Example Forum user nodebb
 [区块链开发者社区](https://uchain.org/)
-![nodebb](images/nodebb-chain.png)
+![nodebb](/images/nodebb-chain.png)

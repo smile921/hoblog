@@ -13,13 +13,12 @@ timezone: Asia/Shanghai
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://smile921.github.io/
-root: /hoblog
-permalink: :year:month:day_:title/
-permalink_defaults:
-
-avatar: /hoblog/img/timg.png
+root: /
+permalink: :year:month:title/
+permalink_defaults: :year:month:title/
+avatar: /img/timg.png
 ## favicon: http://smile921.github.io/hak_blog/images/favicon.ico
-favicon: /hoblog/img/favicon.ico
+favicon: /img/favicon.ico
 
 # Directory
 source_dir: source
@@ -49,7 +48,7 @@ highlight:
   tab_replace: true
 
 # Category & Tag
-default_category: uncategorized
+default_category: u
 category_map: 
 tag_map:
 
@@ -74,7 +73,7 @@ theme: Yelee
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/smile921/hoblog.git
+  repository: https://github.com/smile921/smile921.github.io.git
   ## repository: git@github.com:smile921/hoblog.git
   branch: gh-pages
 
